@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start your free trial | Arvinify</title>
+<meta name="description" content="Set up Arvinify missed call recovery in a few minutes. No sales call, no demo — connect your number and start booking missed calls automatically." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://arvinify.com/start" />
+<meta name="theme-color" content="#0A0E1A" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0E1A'/%3E%3Cpath d='M30 70 L50 28 L70 70' stroke='%23FF5C38' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='40' y1='56' x2='60' y2='56' stroke='%2300E0A4' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
+<style>
+  :root {
+    --ink:#0A0E1A; --ink-soft:#121829; --paper:#F7F5F0; --ember:#FF5C38;
+    --signal:#00E0A4; --muted:#8A93A8; --line:rgba(255,255,255,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    background:var(--ink); color:var(--paper); min-height:100vh;
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    line-height:1.55; display:flex; flex-direction:column;
+  }
+  h1,h2,h3 { letter-spacing:-0.03em; line-height:1.05; font-weight:800; }
+  a { color:inherit; text-decoration:none; }
+
+  /* top bar */
+  .bar { border-bottom:1px solid var(--line); }
+  .bar-in { max-width:680px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem; letter-spacing:-0.04em; }
+  .logo svg { width:28px; height:28px; }
+  .back { font-size:0.9rem; color:var(--muted); }
+  .back:hover { color:var(--paper); }
+
+  .stage { flex:1; display:flex; align-items:flex-start; justify-content:center; padding:48px 24px 80px; }
+  .card { width:100%; max-width:520px; }
+
+  /* progress */
+  .steps-bar { display:flex; gap:8px; margin-bottom:14px; }
+  .pip { height:5px; flex:1; border-radius:999px; background:var(--ink-soft); border:1px solid var(--line); transition:background .3s ease; }
+  .pip.on { background:var(--ember); border-color:var(--ember); }
+  .step-count { font-family:ui-monospace,monospace; font-size:0.78rem; color:var(--muted); letter-spacing:0.08em; margin-bottom:30px; }
+
+  .reassure-top {
+    display:inline-flex; align-items:center; gap:8px; font-size:0.8rem; font-weight:600;
+    color:var(--signal); background:rgba(0,224,164,0.08); border:1px solid rgba(0,224,164,0.22);
+    padding:6px 13px; border-radius:999px; margin-bottom:22px;
+  }
+  .panel h1 { font-size:clamp(1.6rem,5vw,2.2rem); margin-bottom:12px; }
+  .panel .sub { color:#C0C7D6; font-size:1.05rem; margin-bottom:30px; }
+
+  label { display:block; font-weight:600; font-size:0.92rem; margin-bottom:8px; }
+  .hint { color:var(--muted); font-weight:400; font-size:0.84rem; }
+  input, select {
+    width:100%; background:var(--ink-soft); border:1px solid var(--line); color:var(--paper);
+    padding:15px 16px; border-radius:12px; font-size:1.05rem; font-family:inherit;
+    margin-bottom:6px; transition:border-color .15s ease;
+  }
+  input::placeholder { color:#5A6478; }
+  input:focus, select:focus { outline:none; border-color:var(--signal); }
+  .err { color:var(--ember); font-size:0.84rem; min-height:18px; margin-bottom:14px; }
+
+  /* trade chips */
+  .chips { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:8px; }
+  .chip {
+    border:1px solid var(--line); background:var(--ink-soft); border-radius:12px; padding:15px;
+    cursor:pointer; font-weight:600; font-size:1rem; text-align:center; transition:all .15s ease;
+    user-select:none;
+  }
+  .chip:hover { border-color:var(--muted); }
+  .chip.sel { border-color:var(--ember); background:rgba(255,92,56,0.1); box-shadow:0 0 0 1px var(--ember); }
+
+  .row-btns { display:flex; gap:12px; margin-top:18px; }
+  button {
+    font-family:inherit; cursor:pointer; border:none; font-size:1.05rem; font-weight:700;
+    padding:15px 24px; border-radius:999px; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .next { flex:1; background:var(--ember); color:#fff; box-shadow:0 10px 30px rgba(255,92,56,0.4); }
+  .next:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(255,92,56,0.55); }
+  .prev { background:transparent; color:var(--muted); border:1px solid var(--line); }
+  .prev:hover { color:var(--paper); border-color:var(--muted); }
+
+  .micro { text-align:center; color:var(--muted); font-size:0.84rem; margin-top:22px; }
+  .micro b { color:var(--signal); }
+
+  /* success */
+  .done { text-align:center; }
+  .done .ring {
+    width:84px; height:84px; margin:0 auto 26px; border-radius:50%;
+    background:radial-gradient(circle,rgba(0,224,164,0.18),transparent 70%);
+    border:2px solid var(--signal); display:flex; align-items:center; justify-content:center;
+    font-size:2.2rem; color:var(--signal);
+  }
+  .done h1 { font-size:clamp(1.7rem,5vw,2.3rem); margin-bottom:14px; }
+  .done .sub { color:#C0C7D6; font-size:1.08rem; margin-bottom:28px; }
+  .checklist { text-align:left; background:var(--ink-soft); border:1px solid var(--line); border-radius:16px; padding:24px; margin-bottom:26px; }
+  .checklist h3 { font-size:0.82rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:16px; font-weight:700; }
+  .checklist .ci { display:flex; gap:12px; padding:9px 0; align-items:flex-start; color:#D5DAE5; }
+  .checklist .ci .dot { color:var(--signal); font-weight:800; flex-shrink:0; }
+  .summary { font-size:0.9rem; color:var(--muted); margin-bottom:24px; }
+  .summary b { color:var(--paper); }
+
+  .hidden { display:none; }
+  :focus-visible { outline:2px solid var(--signal); outline-offset:3px; border-radius:8px; }
+  @media (prefers-reduced-motion:reduce){ *{ animation:none!important; transition:none!important; } }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="logo" href="/index.html" aria-label="Arvinify home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#121829"/><path d="M30 70 L50 28 L70 70" stroke="#FF5C38" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="40" y1="56" x2="60" y2="56" stroke="#00E0A4" stroke-width="9" stroke-linecap="round"/></svg>
+      Arvinify
+    </a>
+    <a class="back" href="/index.html">← Back to site</a>
+  </div>
+</div>
+
+<main class="stage">
+  <div class="card">
+
+    <!-- progress -->
+    <div id="progress">
+      <div class="steps-bar">
+        <div class="pip on" data-pip="1"></div>
+        <div class="pip" data-pip="2"></div>
+        <div class="pip" data-pip="3"></div>
+      </div>
+      <div class="step-count" id="stepCount">STEP 1 OF 3</div>
+    </div>
+
+    <!-- STEP 1: email -->
+    <section class="panel" id="step1">
+      <span class="reassure-top"><span aria-hidden="true">●</span> No sales call · setup in minutes</span>
+      <h1>Let's seal the missed-call leak.</h1>
+      <p class="sub">Start your free trial. We'll only ask for what's needed to run it on your real calls — nothing else.</p>
+      <label for="email">Work email</label>
+      <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@yourcompany.com" />
+      <div class="err" id="err1"></div>
+      <div class="row-btns">
+        <button class="next" onclick="next(1)">Continue</button>
+      </div>
+      <p class="micro">Free trial · <b>no card required to start</b></p>
+    </section>
+
+    <!-- STEP 2: business + trade -->
+    <section class="panel hidden" id="step2">
+      <h1>What should the texts sound like?</h1>
+      <p class="sub">Your business name goes in the messages, and your trade tunes the booking script.</p>
+      <label for="biz">Business name</label>
+      <input id="biz" type="text" autocomplete="organization" placeholder="e.g. Northside Heating & Air" />
+      <div class="err" id="err2biz"></div>
+      <label>Your trade</label>
+      <div class="chips" id="chips">
+        <div class="chip" data-trade="HVAC" tabindex="0" role="button">HVAC</div>
+        <div class="chip" data-trade="Plumbing" tabindex="0" role="button">Plumbing</div>
+        <div class="chip" data-trade="Electrical" tabindex="0" role="button">Electrical</div>
+        <div class="chip" data-trade="Roofing" tabindex="0" role="button">Roofing</div>
+        <div class="chip" data-trade="Landscaping" tabindex="0" role="button">Landscaping</div>
+        <div class="chip" data-trade="Other" tabindex="0" role="button">Other</div>
+      </div>
+      <div class="err" id="err2trade"></div>
+      <div class="row-btns">
+        <button class="prev" onclick="back(2)">Back</button>
+        <button class="next" onclick="next(2)">Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: phone number -->
+    <section class="panel hidden" id="step3">
+      <h1>Last step — your business number.</h1>
+      <p class="sub">This is the line Arvinify watches for missed calls. Nothing to reprint; it works on the number you already use.</p>
+      <label for="phone">Business phone number</label>
+      <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" />
+      <div class="err" id="err3"></div>
+      <div class="row-btns">
+        <button class="prev" onclick="back(3)">Back</button>
+        <button class="next" onclick="submitForm()" id="finishBtn">Start my free trial</button>
+      </div>
+      <p class="micro">By starting, you agree it's okay for us to text this number to set things up.</p>
+    </section>
+
+    <!-- SUCCESS -->
+    <section class="panel done hidden" id="success">
+      <div class="ring" aria-hidden="true">✓</div>
+      <h1>You're in. We're setting it up now.</h1>
+      <p class="sub">No call needed. Here's exactly what happens next.</p>
+      <div class="checklist">
+        <h3>What happens now</h3>
+        <div class="ci"><span class="dot">1</span><span>We connect Arvinify to your business number and load the booking script for your trade.</span></div>
+        <div class="ci"><span class="dot">2</span><span>You get a confirmation email with a test link so you can see the 7-second text-back yourself.</span></div>
+        <div class="ci"><span class="dot">3</span><span>It goes live on your real missed calls — and starts booking jobs while you work.</span></div>
+      </div>
+      <p class="summary" id="summary"></p>
+      <a class="back" href="/index.html">← Back to homepage</a>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  const state = { email:"", biz:"", trade:"", phone:"" };
+
+  function setStep(n){
+    document.querySelectorAll('.panel').forEach(p=>p.classList.add('hidden'));
+    document.getElementById('step'+n).classList.remove('hidden');
+    document.querySelectorAll('.pip').forEach(p=>{
+      p.classList.toggle('on', Number(p.dataset.pip) <= n);
+    });
+    document.getElementById('stepCount').textContent = 'STEP '+n+' OF 3';
+    document.getElementById('progress').classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function validPhone(v){ return (v.replace(/\D/g,'').length >= 10); }
+
+  function next(from){
+    if(from===1){
+      const v = document.getElementById('email').value.trim();
+      const e = document.getElementById('err1');
+      if(!validEmail(v)){ e.textContent = "Please enter a valid email."; return; }
+      e.textContent=""; state.email=v; setStep(2);
+    }
+    else if(from===2){
+      const biz = document.getElementById('biz').value.trim();
+      const eb = document.getElementById('err2biz'), et = document.getElementById('err2trade');
+      let ok = true;
+      if(!biz){ eb.textContent="Tell us your business name."; ok=false; } else { eb.textContent=""; }
+      if(!state.trade){ et.textContent="Pick your trade."; ok=false; } else { et.textContent=""; }
+      if(!ok) return;
+      state.biz=biz; setStep(3);
+    }
+  }
+  function back(from){ setStep(from-1); }
+
+  // trade chips
+  document.querySelectorAll('.chip').forEach(c=>{
+    const choose = ()=>{
+      document.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));
+      c.classList.add('sel'); state.trade=c.dataset.trade;
+      document.getElementById('err2trade').textContent="";
+    };
+    c.addEventListener('click', choose);
+    c.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); choose(); }});
+  });
+
+  function submitForm(){
+    const v = document.getElementById('phone').value.trim();
+    const e = document.getElementById('err3');
+    if(!validPhone(v)){ e.textContent="Enter a valid phone number (10+ digits)."; return; }
+    e.textContent=""; state.phone=v;
+
+    const btn = document.getElementById('finishBtn');
+    btn.textContent = "Setting up…"; btn.disabled = true;
+
+    // ── HANDOFF POINT ──────────────────────────────────────────
+    // When your backend is ready, POST `state` to your endpoint here.
+    // For now it logs the lead and shows the success screen.
+    // Example:
+    // fetch('https://YOUR-ENDPOINT/signup', {
+    //   method:'POST', headers:{'Content-Type':'application/json'},
+    //   body: JSON.stringify(state)
+    // });
+    console.log("New Arvinify lead:", state);
+    // ───────────────────────────────────────────────────────────
+
+    setTimeout(()=>{
+      document.getElementById('progress').classList.add('hidden');
+      document.querySelectorAll('.panel').forEach(p=>p.classList.add('hidden'));
+      const s = document.getElementById('success');
+      document.getElementById('summary').innerHTML =
+        'Setting up for <b>'+escapeHtml(state.biz)+'</b> ('+escapeHtml(state.trade)+
+        ') · '+escapeHtml(state.phone)+'. Confirmation sent to <b>'+escapeHtml(state.email)+'</b>.';
+      s.classList.remove('hidden');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }, 700);
+  }
+
+  function escapeHtml(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+  // Enter key advances
+  document.getElementById('email').addEventListener('keydown', e=>{ if(e.key==='Enter') next(1); });
+  document.getElementById('biz').addEventListener('keydown', e=>{ if(e.key==='Enter') next(2); });
+  document.getElementById('phone').addEventListener('keydown', e=>{ if(e.key==='Enter') submitForm(); });
+</script>
+
+</body>
+</html>
