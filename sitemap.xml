@@ -24,4 +24,16 @@
     <loc>https://www.arvinify.com/apps/lumino/privacy/</loc>
     <priority>0.50</priority>
   </url>
+  <url>
+    <loc>https://www.arvinify.com/her-daily-prayer-cards/</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.arvinify.com/her-daily-prayer-cards/support/</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.arvinify.com/her-daily-prayer-cards/privacy/</loc>
+    <priority>0.50</priority>
+  </url>
 </urlset>
