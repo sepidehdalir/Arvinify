@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>MirrorLux Support</title>
+<meta name="description" content="Get help with MirrorLux: getting started, troubleshooting, restoring purchases, compatibility and how to contact support." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.arvinify.com/apps/mirrorlux/support/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.arvinify.com/apps/mirrorlux/support/" />
+<meta property="og:title" content="MirrorLux Support" />
+<meta property="og:description" content="Get help with MirrorLux: getting started, troubleshooting, restoring purchases, compatibility and how to contact support." />
+<meta property="og:site_name" content="Arvinify" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="MirrorLux Support" />
+<meta name="twitter:description" content="Get help with MirrorLux: getting started, troubleshooting, restoring purchases, compatibility and how to contact support." />
+
+<meta name="theme-color" content="#0B0904" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230B0904'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23C9A24B' stroke-width='4'/%3E%3Ccircle cx='50' cy='38' r='7' fill='%23C9A24B'/%3E%3C/svg%3E" />
+
+<style>
+  :root{
+    --bg:#0B0904;--bg-2:#120F08;--panel:#171208;--paper:#F5EFE1;--muted:#C7BFA9;
+    --ash:#9C9480;--ash-dim:#6B6555;--gold:#C9A24B;--gold-2:#8E6F2E;--glow:#E8CD86;
+    --line:rgba(245,239,225,0.10);--line-soft:rgba(245,239,225,0.06);--maxw:920px
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--paper);overflow-x:hidden;font-family:"Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  ::selection{background:var(--gold);color:#1a1206}
+  .display{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;letter-spacing:-0.03em;line-height:0.98}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{color:var(--glow)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%}
+  .aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:
+    radial-gradient(circle at 74% 8%,rgba(201,162,75,.14),transparent 30%),
+    radial-gradient(circle at 10% 60%,rgba(232,205,134,.06),transparent 26%);
+    filter:blur(18px)}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(11,9,4,0.74);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+  .nav-in{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700;font-size:1.2rem;letter-spacing:-0.03em;color:var(--paper)}
+  .logo svg{width:28px;height:28px}
+  .nav-links{display:flex;gap:30px;font-size:0.92rem;color:var(--ash)}
+  .nav-links a{color:var(--ash)}
+  .nav-links a:hover{color:var(--paper)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  main{flex:1;position:relative;z-index:2}
+  .kicker{font-family:"JetBrains Mono";font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
+
+  .hero{padding:168px 0 64px}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:16px}
+  .hero p{color:var(--muted);font-size:1.1rem;max-width:56ch;line-height:1.65}
+
+  .toc{display:flex;flex-wrap:wrap;gap:10px;margin:36px 0 0}
+  .toc a{border:1px solid var(--line);padding:9px 16px;font-size:0.86rem;color:var(--muted);font-family:"JetBrains Mono"}
+  .toc a:hover{border-color:rgba(201,162,75,.5);color:var(--paper)}
+
+  .section{padding:56px 0;border-top:1px solid var(--line)}
+  .section h2{font-family:"Space Grotesk";font-weight:700;font-size:1.7rem;letter-spacing:-.02em;margin-bottom:20px;scroll-margin-top:100px}
+  .prose{color:var(--muted);font-size:1.02rem;line-height:1.75;max-width:70ch}
+  .prose p{margin-bottom:16px}
+  .prose ol,.prose ul{margin:0 0 16px 22px}
+  .prose li{margin-bottom:10px}
+  .prose strong{color:var(--paper);font-weight:600}
+
+  .qa{display:grid;gap:22px;margin-top:8px}
+  .qa-item h3{font-family:"Space Grotesk";font-weight:600;font-size:1.05rem;margin-bottom:8px;color:var(--paper)}
+  .qa-item p{color:var(--muted);font-size:0.98rem;line-height:1.7}
+
+  .panel{border:1px solid var(--line);background:rgba(18,15,8,.78);padding:36px;position:relative;overflow:hidden}
+  .panel::after{content:"";position:absolute;right:-160px;top:-160px;width:360px;height:360px;background:radial-gradient(circle,rgba(201,162,75,.16),transparent 64%);filter:blur(12px)}
+  .panel-in{position:relative;z-index:2}
+  .contact-row{display:flex;flex-wrap:wrap;gap:28px;margin-top:22px}
+  .contact-item{display:flex;flex-direction:column;gap:4px}
+  .contact-item .label{font-family:"JetBrains Mono";font-size:0.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ash-dim)}
+  .contact-item .value{font-size:1.08rem;font-weight:600;color:var(--paper)}
+  .contact-item a{color:var(--gold)}
+
+  footer{border-top:1px solid var(--line);padding:44px 0;position:relative;z-index:2}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;color:var(--ash);font-size:0.88rem}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap}
+  .foot-links a{color:var(--ash)}
+  .foot-links a:hover{color:var(--paper)}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  @media(max-width:640px){.wrap{padding:0 20px}.hero{padding:132px 0 48px}.section{padding:40px 0}.panel{padding:26px}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" href="/apps/mirrorlux/" aria-label="MirrorLux home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#171208"/><circle cx="50" cy="50" r="30" fill="none" stroke="#C9A24B" stroke-width="4"/><circle cx="50" cy="38" r="7" fill="#C9A24B"/></svg>
+      MirrorLux
+    </a>
+    <div class="nav-links">
+      <a href="/apps/mirrorlux/">Overview</a>
+      <a href="/apps/mirrorlux/privacy/">Privacy</a>
+      <a href="mailto:support@arvinify.com">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Support</div>
+      <h1 class="display">MirrorLux Support</h1>
+      <p>Everything you need to get started, fix a problem, or reach a real person. Most questions are answered below.</p>
+      <nav class="toc" aria-label="Support sections">
+        <a href="#getting-started">Getting started</a>
+        <a href="#faq">FAQ</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#restore">Restore purchases</a>
+        <a href="#compatibility">Compatibility</a>
+        <a href="#privacy">Privacy summary</a>
+        <a href="#contact">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section" id="getting-started">
+    <div class="wrap">
+      <h2>Getting started</h2>
+      <div class="prose">
+        <p>MirrorLux works the moment you open it, no setup required.</p>
+        <ol>
+          <li>Open MirrorLux. If this is the first launch, allow camera access when prompted, the mirror view needs it to show your reflection.</li>
+          <li>Use the three tone dots at the bottom of the screen to switch between Warm, Neutral and Cool Edge Light.</li>
+          <li>Drag the zoom slider to get closer to a specific area without losing focus.</li>
+          <li>Tap the freeze icon to hold the current frame, then tap again to return to live view.</li>
+        </ol>
+        <p>That's the entire app. There are no accounts to create and nothing to configure before you start.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <div class="qa">
+        <div class="qa-item">
+          <h3>Why is the screen black or showing no reflection?</h3>
+          <p>This almost always means camera access hasn't been granted. Go to iPhone <strong>Settings &rarr; MirrorLux</strong> and make sure Camera is turned on.</p>
+        </div>
+        <div class="qa-item">
+          <h3>Does MirrorLux need an internet connection?</h3>
+          <p>No. MirrorLux works fully offline, including Edge Light, zoom, and Freeze Frame.</p>
+        </div>
+        <div class="qa-item">
+          <h3>Do I need to create an account?</h3>
+          <p>No. MirrorLux has no accounts, no sign-in, and no login screen of any kind.</p>
+        </div>
+        <div class="qa-item">
+          <h3>Is MirrorLux a subscription?</h3>
+          <p>No. MirrorLux has no subscriptions or recurring charges.</p>
+        </div>
+        <div class="qa-item">
+          <h3>Does MirrorLux save my photos or video anywhere?</h3>
+          <p>No. MirrorLux does not record, save, or upload anything during normal mirror use. Nothing you see in the mirror is stored.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="troubleshooting">
+    <div class="wrap">
+      <h2>Troubleshooting</h2>
+      <div class="prose">
+        <p><strong>The image looks dim or grainy.</strong> Try switching to Cool tone Edge Light, and make sure nothing is covering the camera lens or the edges of the screen.</p>
+        <p><strong>Zoom feels laggy or stutters.</strong> Close other apps running in the background, then relaunch MirrorLux. This is almost always a temporary memory issue, not a MirrorLux bug.</p>
+        <p><strong>Freeze Frame won't unfreeze.</strong> Tap the freeze icon a second time. If the app appears stuck entirely, close it fully from the app switcher and reopen it.</p>
+        <p><strong>Camera permission was denied by accident.</strong> Open iPhone <strong>Settings &rarr; MirrorLux &rarr; Camera</strong> and enable access, then relaunch the app.</p>
+        <p>If none of the above resolves the issue, please <a href="#contact">contact support</a> with your iPhone model and iOS version so we can help faster.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="restore">
+    <div class="wrap">
+      <h2>How to restore purchases</h2>
+      <div class="prose">
+        <p>MirrorLux currently has no paid in-app purchases or subscriptions, so there is nothing to restore. If a future update introduces optional purchases, a <strong>Restore Purchases</strong> option will be added to the app's settings, and this page will be updated with the exact steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="compatibility">
+    <div class="wrap">
+      <h2>Compatibility</h2>
+      <div class="prose">
+        <p>MirrorLux is built for iPhone and supports current iPhone models running a supported version of iOS. The exact minimum iOS version and supported devices are listed on the MirrorLux App Store product page before you download.</p>
+        <p>MirrorLux requires camera access to function, since the mirror view is built from your device's live camera feed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="privacy">
+    <div class="wrap">
+      <h2>Privacy summary</h2>
+      <div class="prose">
+        <p>MirrorLux does not collect, store, or upload photos, video, or personal data during normal use, and does not require an account. For the complete policy, see the <a href="/apps/mirrorlux/privacy/">MirrorLux Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <h2>Bug reports & contact</h2>
+      <div class="panel">
+        <div class="panel-in">
+          <p class="prose" style="margin-bottom:0">When reporting a bug, please include your iPhone model, iOS version, and a short description of what happened, it helps us fix issues faster.</p>
+          <div class="contact-row">
+            <div class="contact-item">
+              <span class="label">Email</span>
+              <span class="value"><a href="mailto:support@arvinify.com">support@arvinify.com</a></span>
+            </div>
+            <div class="contact-item">
+              <span class="label">Response time</span>
+              <span class="value">Usually within 24–48 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <a class="logo" href="/apps/mirrorlux/" style="font-size:1.05rem">
+      <svg viewBox="0 0 100 100" aria-hidden="true" style="width:24px;height:24px"><rect width="100" height="100" rx="24" fill="#171208"/><circle cx="50" cy="50" r="30" fill="none" stroke="#C9A24B" stroke-width="4"/><circle cx="50" cy="38" r="7" fill="#C9A24B"/></svg>
+      MirrorLux
+    </a>
+    <div class="foot-links">
+      <a href="/apps/mirrorlux/">Overview</a>
+      <a href="/apps/mirrorlux/privacy/">Privacy Policy</a>
+      <a href="mailto:support@arvinify.com">Contact</a>
+      <a href="/">Arvinify</a>
+    </div>
+    <div>&copy; 2026 Arvinify</div>
+  </div>
+</footer>
+
+<script>
+  const navEl=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{navEl.classList.toggle('scrolled',document.documentElement.scrollTop>40)},{passive:true});
+</script>
+</body>
+</html>
