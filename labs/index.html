@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arvinify Labs | Products We Build</title>
+<meta name="description" content="Arvinify Labs is where we build and ship our own software. The same frontend and debugging craft behind our Website Rescue repairs." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://www.arvinify.com/labs" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.arvinify.com/labs" />
+<meta property="og:title" content="Arvinify Labs | Products We Build" />
+<meta property="og:description" content="Where Arvinify builds and ships its own software. The craft behind our Website Rescue repairs." />
+<meta property="og:site_name" content="Arvinify" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#0A0B0E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0B0E'/%3E%3Cpath d='M30 70 L50 28 L70 70' stroke='%233DDC97' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='40' y1='56' x2='60' y2='56' stroke='%23F4F5F2' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
+<style>
+  :root{--bg:#0A0B0E;--bg-2:#101216;--panel:#14171C;--paper:#F4F5F2;--ash:#98A0AC;--ash-dim:#646B77;--fix:#3DDC97;--ink:#07120C;--line:rgba(244,245,242,0.10);--line-soft:rgba(244,245,242,0.055);--maxw:1160px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--paper);overflow-x:hidden;font-family:"Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  ::selection{background:var(--fix);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;width:100%}
+  .display{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;letter-spacing:-0.03em;line-height:1.0}
+  svg{display:block}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(10,11,14,0.74);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700;font-size:1.22rem;letter-spacing:-0.03em}
+  .logo svg{width:29px;height:29px}
+  .nav-cta{background:var(--fix);color:var(--ink);padding:11px 20px;font-weight:600;font-size:0.9rem;white-space:nowrap;transition:transform .18s ease,box-shadow .18s ease}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(61,220,151,0.28)}
+  main{flex:1;position:relative;z-index:2}
+
+  .kicker{font-family:"JetBrains Mono";font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--fix);display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .kicker::before{content:"";width:30px;height:1px;background:var(--fix)}
+  .hero{padding:150px 0 60px}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem);letter-spacing:-0.035em;margin-bottom:20px;max-width:16ch}
+  .hero p{color:#B9BEC7;font-size:1.15rem;max-width:60ch;line-height:1.6}
+
+  .section{padding:20px 0 90px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg));padding:32px;display:flex;flex-direction:column;transition:border-color .3s ease,transform .3s ease}
+  .card:hover{border-color:rgba(61,220,151,0.35);transform:translateY(-3px)}
+  .card .mark{width:48px;height:48px;margin-bottom:20px}
+  .card h2{font-family:"Space Grotesk";font-weight:600;font-size:1.4rem;letter-spacing:-0.02em;margin-bottom:6px}
+  .card .cat{font-family:"JetBrains Mono";font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ash-dim);margin-bottom:16px}
+  .card p{color:var(--ash);font-size:0.96rem;line-height:1.6;margin-bottom:24px;flex:1}
+  .card .go{font-family:"JetBrains Mono";font-size:0.88rem;color:var(--fix);display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid transparent;align-self:flex-start;transition:border-color .2s ease}
+  .card:hover .go{border-color:var(--fix)}
+
+  .backcta{border-top:1px solid var(--line);padding:70px 0;text-align:center}
+  .backcta h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-0.03em;margin-bottom:14px}
+  .backcta p{color:var(--ash);margin-bottom:28px;max-width:48ch;margin-left:auto;margin-right:auto}
+  .btn-fix{display:inline-flex;align-items:center;gap:10px;background:var(--fix);color:var(--ink);padding:15px 28px;font-weight:600;font-size:1rem;transition:transform .18s ease,box-shadow .18s ease}
+  .btn-fix:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(61,220,151,0.35)}
+
+  footer{border-top:1px solid var(--line);padding:44px 0;position:relative;z-index:2}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;color:var(--ash);font-size:0.88rem}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap}
+  .foot-links a:hover{color:var(--paper)}
+  :focus-visible{outline:2px solid var(--fix);outline-offset:3px}
+  @media(max-width:640px){.wrap,.nav-in{padding-left:20px;padding-right:20px}.hero{padding:128px 0 48px}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" href="/" aria-label="Arvinify home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#14171C"/><path d="M30 70 L50 28 L70 70" stroke="#3DDC97" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="40" y1="56" x2="60" y2="56" stroke="#F4F5F2" stroke-width="9" stroke-linecap="round"/></svg>
+      Arvinify <span style="font-family:'JetBrains Mono';font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fix);border:1px solid var(--line);padding:3px 7px;margin-left:2px">Labs</span>
+    </a>
+    <a class="nav-cta" href="/start">Get My Website Fixed</a>
+  </div>
+</nav>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Arvinify Labs</div>
+      <h1 class="display">We fix websites because we build them.</h1>
+      <p>Between client repairs, we design and ship our own software. It keeps our frontend, debugging and shipping instincts sharp, and it's the reason a Website Rescue is in steady hands.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        <article class="card">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="lg" cx="50%" cy="40%" r="65%"><stop offset="0%" stop-color="#B9A9FF"/><stop offset="100%" stop-color="#6C5CE7"/></radialGradient></defs><rect width="100" height="100" rx="24" fill="#14121F"/><circle cx="54" cy="48" r="26" fill="url(#lg)"/><circle cx="42" cy="42" r="22" fill="#14121F"/></svg>
+          <h2>Lumino</h2>
+          <div class="cat">iOS · Meditation &amp; reflection</div>
+          <p>A calm daily space for meditation, reflection and intuitive guidance. Designed to be quiet, simple and unhurried.</p>
+          <a class="go" href="/apps/lumino/">View Lumino <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#171208"/><circle cx="50" cy="50" r="30" fill="none" stroke="#C9A24B" stroke-width="4"/><circle cx="50" cy="38" r="7" fill="#C9A24B"/></svg>
+          <h2>MirrorLux</h2>
+          <div class="cat">iOS · Makeup mirror</div>
+          <p>A professional makeup mirror for iPhone with adjustable edge lighting, smooth zoom, freeze frame and complete privacy.</p>
+          <a class="go" href="/apps/mirrorlux/">View MirrorLux <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#1A1524"/><path d="M50 26c8 8 13 15 13 22a13 13 0 1 1-26 0c0-7 5-14 13-22z" fill="none" stroke="#C9A24B" stroke-width="3"/></svg>
+          <h2>Her Daily Prayer Cards</h2>
+          <div class="cat">Web · Daily devotion</div>
+          <p>A simple, focused daily devotion experience, built and shipped in-house as part of the Labs catalogue.</p>
+          <a class="go" href="/her-daily-prayer-cards/">View project <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="backcta">
+    <div class="wrap">
+      <h2 class="display">Need a website fixed, not built?</h2>
+      <p>That's the main event. Send us the problem and we'll take it from there.</p>
+      <a class="btn-fix" href="/start">Get My Website Fixed <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>© 2026 Arvinify. Website Rescue for businesses.</div>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/start">Get Fixed</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:hello@arvinify.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var navEl=document.getElementById('nav');
+  window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',document.documentElement.scrollTop>40);},{passive:true});
+</script>
+</body>
+</html>
