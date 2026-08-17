@@ -89,6 +89,12 @@
   .resend:hover{border-color:var(--fix)}
 
   .hidden{display:none}
+  .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .trust-links{margin-top:14px;font-size:0.82rem;color:var(--ash-dim);line-height:1.5}
+  .trust-links a{color:var(--ash);text-decoration:underline}
+  .trust-links a:hover{color:var(--paper)}
+  .spinner{width:16px;height:16px;border:2px solid rgba(7,18,12,0.35);border-top-color:var(--ink);border-radius:50%;display:inline-block;vertical-align:-3px;margin-right:8px;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
   :focus-visible{outline:2px solid var(--fix);outline-offset:3px;border-radius:8px}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -169,26 +175,31 @@
       <label for="phone">Phone <span class="hint">(optional)</span></label>
       <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" />
       <div class="err" id="err3phone"></div>
+      <div class="hp" aria-hidden="true">
+        <label for="company_website">Leave this field empty</label>
+        <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
       <div class="row-btns">
         <button class="prev" onclick="back(3)">Back</button>
         <button class="next" onclick="submitForm()" id="finishBtn">Send my request</button>
       </div>
-      <p class="micro">// We only use these details to reply about your repair.</p>
+      <div class="err" id="err3submit" role="alert" style="margin-top:12px"></div>
+      <p class="micro">// We only use these details to respond about your request.</p>
+      <p class="trust-links">By submitting, you agree to our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
     </section>
 
     <!-- SUCCESS -->
     <section class="panel done hidden" id="success">
       <div class="ring" aria-hidden="true">✓</div>
-      <h2 id="doneTitle">Your request is ready to send.</h2>
-      <p class="sub">We just opened your email app with everything filled in. Add a screenshot if you have one, then hit send.</p>
-      <div class="checklist">
+      <h2 id="doneTitle">Request received.</h2>
+      <p class="sub" id="doneSub">Thanks. Your request is in and we'll reply, usually within one business day.</p>
+      <div class="checklist" id="doneChecklist">
         <h3>What happens next</h3>
-        <div class="ci"><span class="dot">1</span><span>Send the email we prepared, addressed to hello@arvinify.com.</span></div>
-        <div class="ci"><span class="dot">2</span><span>We reproduce the issue and confirm the scope and flat price.</span></div>
-        <div class="ci"><span class="dot">3</span><span>You approve, we fix it, and we verify the affected area before closing.</span></div>
+        <div class="ci"><span class="dot">1</span><span>We reproduce the issue on your site and confirm the scope and flat price.</span></div>
+        <div class="ci"><span class="dot">2</span><span>You approve the scope before any work begins.</span></div>
+        <div class="ci"><span class="dot">3</span><span>We fix it and verify the affected area before closing.</span></div>
       </div>
       <p class="summary" id="summary"></p>
-      <p style="margin-bottom:20px"><a class="resend" id="resend" href="#">Email app didn't open? Click here →</a></p>
       <a class="back" href="/">← Back to homepage</a>
     </section>
 
@@ -197,20 +208,29 @@
 
 <script>
   var params=new URLSearchParams(location.search);
-  var checkMode=params.get('check')==='1';
-  var tier=params.get('tier')||'';
+  var checkParam=params.get('check')==='1';
+  var tierParam=params.get('tier')||'';
   var state={url:"",cat:"",desc:"",name:"",email:"",phone:""};
 
-  // Context: Free Website Check softens the required description.
-  if(checkMode){
-    document.getElementById('reassure').textContent='● Free website check · no cost';
-    document.getElementById('s1title').textContent='Free Website Check.';
-    document.getElementById('s1sub').textContent="Not sure what's wrong? Send us your URL and we'll take a quick look and tell you if we spot anything worth fixing.";
-    document.getElementById('s2title').textContent='Anything you want us to look at?';
-    document.getElementById('s2sub').textContent="Point us at what's bugging you, or leave it broad and we'll do a quick scan.";
-    document.getElementById('descHint').textContent='(optional)';
-    document.getElementById('doneTitle').textContent='Your check request is ready to send.';
-  }
+  // Distinct intake modes driven by CTA context. Each sets the submitted
+  // submissionType/tier so the lead payload records where it came from.
+  var MODES={
+    "default":{badge:"● Flat-rate repair · from CAD $249",s1t:"Show us the problem.",s1s:"Start with the website that needs a fix. Paste the address of the page where something is going wrong.",type:"website_rescue",tier:"rescue",descOptional:false},
+    "check":{badge:"● Free Website Check · no cost",s1t:"Free Website Check.",s1s:"Not sure what's wrong? Send us your website and we'll take a quick look for obvious issues worth fixing.",s2t:"Anything you've noticed?",s2s:"Point us at what's bugging you, or leave it broad and we'll take a look.",type:"free_check",tier:"",descOptional:true,doneTitle:"Check request received.",doneSub:"Thanks. We'll review your website and reply with anything meaningful we find, usually within one business day."},
+    "advanced":{badge:"● Advanced Repair · from CAD $499",s1t:"Show us the problem.",s1s:"Advanced repairs cover more complex bugs and larger frontend problems. Start with the website and the page involved.",type:"website_rescue",tier:"advanced",descOptional:false},
+    "project":{badge:"● Larger Project · custom quote",s1t:"Tell us about the project.",s1s:"For work beyond a repair. Start with the website, then describe what you need built or changed.",type:"website_rescue",tier:"project",descOptional:false}
+  };
+  var modeKey=checkParam?"check":(tierParam==="advanced"?"advanced":(tierParam==="project"?"project":"default"));
+  var MODE=MODES[modeKey];
+
+  document.getElementById('reassure').textContent=MODE.badge;
+  document.getElementById('s1title').textContent=MODE.s1t;
+  document.getElementById('s1sub').textContent=MODE.s1s;
+  if(MODE.s2t)document.getElementById('s2title').textContent=MODE.s2t;
+  if(MODE.s2s)document.getElementById('s2sub').textContent=MODE.s2s;
+  if(MODE.descOptional)document.getElementById('descHint').textContent='(optional)';
+  if(MODE.doneTitle)document.getElementById('doneTitle').textContent=MODE.doneTitle;
+  if(MODE.doneSub)document.getElementById('doneSub').textContent=MODE.doneSub;
 
   function setStep(n){
     document.querySelectorAll('.panel').forEach(function(p){p.classList.add('hidden');});
@@ -240,7 +260,7 @@
       var ok=true;
       if(!state.cat){ec.textContent="Pick the closest type of issue.";ok=false;}else{ec.textContent="";}
       var desc=document.getElementById('desc').value.trim();
-      if(!checkMode&&!desc){ed.textContent="A short description helps us reproduce it.";ok=false;}else{ed.textContent="";}
+      if(!MODE.descOptional&&!desc){ed.textContent="A short description helps us reproduce it.";ok=false;}else{ed.textContent="";}
       if(!ok)return;
       state.desc=desc;setStep(3);
     }
@@ -258,56 +278,68 @@
     c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});
   });
 
-  function buildMailto(){
-    var label=checkMode?'Free Website Check':(tier==='advanced'?'Advanced Repair request':(tier==='project'?'Larger Project enquiry':'Website Rescue request'));
-    var subject=label+' — '+state.url;
-    var lines=[
-      label,
-      '',
-      'Website: '+state.url,
-      'Issue type: '+(state.cat||'(not specified)'),
-      'Description: '+(state.desc||'(none provided)'),
-      '',
-      'Name: '+state.name,
-      'Email: '+state.email,
-      'Phone: '+(state.phone||'(not provided)'),
-      '',
-      'Tip: attach a screenshot to this email if you have one.'
-    ];
-    return 'mailto:hello@arvinify.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+  var submitting=false;
+  function setLoading(on){
+    submitting=on;
+    var btn=document.getElementById('finishBtn');
+    btn.disabled=on;
+    btn.innerHTML=on?'<span class="spinner" aria-hidden="true"></span>Sending…':'Send my request';
+  }
+
+  function showSuccess(){
+    document.getElementById('progress').classList.add('hidden');
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.add('hidden');});
+    document.getElementById('summary').innerHTML=
+      'For <b>'+escapeHtml(state.url)+'</b>'+(state.cat?' — '+escapeHtml(state.cat):'')+'. We\'ll reply to <b>'+escapeHtml(state.email)+'</b>.';
+    document.getElementById('success').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'intake_completed',context:modeKey,tier:MODE.tier||''});
   }
 
   function submitForm(){
+    if(submitting)return;
     var name=document.getElementById('name').value.trim();
     var email=document.getElementById('email').value.trim();
     var phone=document.getElementById('phone').value.trim();
     var en=document.getElementById('err3name'),ee=document.getElementById('err3email');
+    var es=document.getElementById('err3submit');
+    es.textContent="";
     var ok=true;
     if(!name){en.textContent="Tell us your name.";ok=false;}else{en.textContent="";}
     if(!validEmail(email)){ee.textContent="Enter a valid email so we can reply.";ok=false;}else{ee.textContent="";}
     if(!ok)return;
     state.name=name;state.email=email;state.phone=phone;
 
-    // ── HANDOFF POINT ──────────────────────────────────────────
-    // No production backend is wired on this branch. To avoid ever
-    // pretending a submission was saved, the request is handed off to
-    // the visitor's own email client via mailto. When a real endpoint
-    // exists (e.g. /api/rescue), POST `state` here and only show the
-    // success screen on a 2xx response, never on failure.
-    var mailto=buildMailto();
-    window.location.href=mailto;
+    // ── REAL SUBMISSION ────────────────────────────────────────
+    // POST to the serverless endpoint. The success screen is shown ONLY
+    // on a 2xx {ok:true} response — never on a failed or errored request.
+    var payload={
+      submissionType:MODE.type,
+      tier:MODE.tier,
+      websiteUrl:state.url,
+      issueCategory:state.cat,
+      description:state.desc,
+      name:state.name,
+      email:state.email,
+      phone:state.phone,
+      company_website:document.getElementById('company_website').value // honeypot
+    };
+    setLoading(true);
+    fetch('/api/rescue',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }).then(function(res){
+      return res.json().catch(function(){return {};}).then(function(data){
+        if(!res.ok||!data.ok){throw new Error(data.error||'Something went wrong. Please try again.');}
+        showSuccess();
+      });
+    }).catch(function(err){
+      setLoading(false);
+      es.textContent=err.message||'We couldn’t submit your request. Please try again, or email hello@arvinify.com.';
+    });
     // ───────────────────────────────────────────────────────────
-
-    document.getElementById('progress').classList.add('hidden');
-    document.querySelectorAll('.panel').forEach(function(p){p.classList.add('hidden');});
-    document.getElementById('summary').innerHTML=
-      'For <b>'+escapeHtml(state.url)+'</b> — '+escapeHtml(state.cat||'general')+'. We\'ll reply to <b>'+escapeHtml(state.email)+'</b>.';
-    document.getElementById('resend').setAttribute('href',mailto);
-    document.getElementById('success').classList.remove('hidden');
-    window.scrollTo({top:0,behavior:'smooth'});
-
-    window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({event:'intake_completed',context:checkMode?'free_check':'rescue'});
   }
 
   function escapeHtml(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
@@ -318,7 +350,7 @@
   document.getElementById('email').addEventListener('keydown',function(e){if(e.key==='Enter')submitForm();});
 
   window.dataLayer=window.dataLayer||[];
-  window.dataLayer.push({event:'intake_started',context:checkMode?'free_check':'rescue'});
+  window.dataLayer.push({event:'intake_started',context:modeKey,tier:MODE.tier||''});
 </script>
 
 </body>
