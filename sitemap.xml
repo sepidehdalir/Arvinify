@@ -5,28 +5,36 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://www.arvinify.com/start/</loc>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://www.arvinify.com/apps/</loc>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://www.arvinify.com/apps/lumino/</loc>
+    <loc>https://www.arvinify.com/labs</loc>
     <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://www.arvinify.com/apps/lumino/support/</loc>
+    <loc>https://www.arvinify.com/privacy</loc>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://www.arvinify.com/terms</loc>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://www.arvinify.com/apps/</loc>
     <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.arvinify.com/apps/lumino/</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.arvinify.com/apps/lumino/support/</loc>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.arvinify.com/apps/lumino/privacy/</loc>
-    <priority>0.50</priority>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.arvinify.com/apps/mirrorlux/</loc>
-    <priority>0.40</priority>
+    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://www.arvinify.com/apps/mirrorlux/support/</loc>
@@ -38,18 +46,18 @@
   </url>
   <url>
     <loc>https://www.arvinify.com/her-daily-prayer-cards/</loc>
-    <priority>0.70</priority>
+    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://www.arvinify.com/her-daily-prayer-cards/support/</loc>
-    <priority>0.50</priority>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.arvinify.com/her-daily-prayer-cards/privacy/</loc>
-    <priority>0.50</priority>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.arvinify.com/her-daily-prayer-cards/terms/</loc>
-    <priority>0.50</priority>
+    <priority>0.30</priority>
   </url>
 </urlset>
