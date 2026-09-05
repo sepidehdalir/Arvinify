@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Start a Website Rescue | Arvinify</title>
-<meta name="description" content="Tell us what's broken on your website. Send the URL and a short description, and we'll take a look. Flat-rate repairs from CAD $249." />
+<meta name="description" content="Tell us what's broken on your website. Send the URL and a short description, and we'll take a look. Flat-rate repairs from $199 USD." />
 <meta name="robots" content="noindex, follow" />
 <link rel="canonical" href="https://www.arvinify.com/start" />
 <meta name="theme-color" content="#0A0B0E" />
@@ -125,7 +125,7 @@
 
     <!-- STEP 1: URL -->
     <section class="panel" id="step1">
-      <span class="reassure-top" id="reassure">● Flat-rate repair · from CAD $249</span>
+      <span class="reassure-top" id="reassure">● Flat-rate repair · from $199 USD</span>
       <h1 id="s1title">Show us the problem.</h1>
       <p class="sub" id="s1sub">Start with the website that needs a fix. Paste the address of the page where something is going wrong.</p>
       <label for="url">Website URL</label>
@@ -215,9 +215,9 @@
   // Distinct intake modes driven by CTA context. Each sets the submitted
   // submissionType/tier so the lead payload records where it came from.
   var MODES={
-    "default":{badge:"● Flat-rate repair · from CAD $249",s1t:"Show us the problem.",s1s:"Start with the website that needs a fix. Paste the address of the page where something is going wrong.",type:"website_rescue",tier:"rescue",descOptional:false},
+    "default":{badge:"● Flat-rate repair · from $199 USD",s1t:"Show us the problem.",s1s:"Start with the website that needs a fix. Paste the address of the page where something is going wrong.",type:"website_rescue",tier:"rescue",descOptional:false},
     "check":{badge:"● Free Website Check · no cost",s1t:"Free Website Check.",s1s:"Not sure what's wrong? Send us your website and we'll take a quick look for obvious issues worth fixing.",s2t:"Anything you've noticed?",s2s:"Point us at what's bugging you, or leave it broad and we'll take a look.",type:"free_check",tier:"",descOptional:true,doneTitle:"Check request received.",doneSub:"Thanks. We'll review your website and reply with anything meaningful we find, usually within one business day."},
-    "advanced":{badge:"● Advanced Repair · from CAD $499",s1t:"Show us the problem.",s1s:"Advanced repairs cover more complex bugs and larger frontend problems. Start with the website and the page involved.",type:"website_rescue",tier:"advanced",descOptional:false},
+    "advanced":{badge:"● Advanced Repair · from $399 USD",s1t:"Show us the problem.",s1s:"Advanced repairs cover more complex bugs and larger frontend problems. Start with the website and the page involved.",type:"website_rescue",tier:"advanced",descOptional:false},
     "project":{badge:"● Larger Project · custom quote",s1t:"Tell us about the project.",s1s:"For work beyond a repair. Start with the website, then describe what you need built or changed.",type:"website_rescue",tier:"project",descOptional:false}
   };
   var modeKey=checkParam?"check":(tierParam==="advanced"?"advanced":(tierParam==="project"?"project":"default"));
