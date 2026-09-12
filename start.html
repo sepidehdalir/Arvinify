@@ -1,357 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Start a Website Rescue | Arvinify</title>
-<meta name="description" content="Tell us what's broken on your website. Send the URL and a short description, and we'll take a look. Flat-rate repairs from $199 USD." />
-<meta name="robots" content="noindex, follow" />
-<link rel="canonical" href="https://www.arvinify.com/start" />
-<meta name="theme-color" content="#0A0B0E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0B0E'/%3E%3Cpath d='M30 70 L50 28 L70 70' stroke='%233DDC97' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='40' y1='56' x2='60' y2='56' stroke='%23F4F5F2' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
-<style>
-  :root{
-    --bg:#0A0B0E;--bg-2:#101216;--panel:#14171C;
-    --paper:#F4F5F2;--ash:#98A0AC;--ash-dim:#646B77;
-    --fix:#3DDC97;--fix-deep:#22B87A;--broken:#FF5C48;--ink:#07120C;
-    --line:rgba(244,245,242,0.10);--line-soft:rgba(244,245,242,0.055);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{background:var(--bg);color:var(--paper);min-height:100vh;font-family:"Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;line-height:1.55;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
-  h1,h2{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-0.03em;line-height:1.05;font-weight:700}
-  ::selection{background:var(--fix);color:var(--ink)}
-
-  .bar{border-bottom:1px solid var(--line)}
-  .bar-in{max-width:680px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
-  .logo{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:1.15rem;letter-spacing:-0.03em}
-  .logo svg{width:28px;height:28px}
-  .back{font-size:0.9rem;color:var(--ash)}
-  .back:hover{color:var(--paper)}
-
-  .stage{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:44px 24px 80px}
-  .card{width:100%;max-width:540px}
-
-  .steps-bar{display:flex;gap:8px;margin-bottom:14px}
-  .pip{height:5px;flex:1;border-radius:999px;background:var(--panel);border:1px solid var(--line);transition:background .3s ease}
-  .pip.on{background:var(--fix);border-color:var(--fix)}
-  .step-count{font-family:"JetBrains Mono";font-size:0.78rem;color:var(--ash);letter-spacing:0.08em;margin-bottom:28px}
-
-  .reassure-top{display:inline-flex;align-items:center;gap:8px;font-size:0.8rem;font-weight:500;color:var(--fix);background:rgba(61,220,151,0.08);border:1px solid rgba(61,220,151,0.22);padding:6px 13px;border-radius:999px;margin-bottom:22px;font-family:"JetBrains Mono";letter-spacing:0.02em}
-  .panel h1,.panel h2{font-size:clamp(1.6rem,5vw,2.15rem);margin-bottom:12px}
-  .panel .sub{color:#C0C6CF;font-size:1.05rem;margin-bottom:28px}
-
-  label{display:block;font-weight:600;font-size:0.92rem;margin-bottom:8px}
-  .hint{color:var(--ash);font-weight:400;font-size:0.84rem}
-  input,textarea{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--paper);padding:15px 16px;border-radius:12px;font-size:1.05rem;font-family:inherit;margin-bottom:6px;transition:border-color .15s ease}
-  textarea{min-height:120px;resize:vertical;line-height:1.5}
-  input::placeholder,textarea::placeholder{color:#5A6270}
-  input:focus,textarea:focus{outline:none;border-color:var(--fix)}
-  .err{color:var(--broken);font-size:0.84rem;min-height:18px;margin-bottom:14px}
-
-  .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:8px}
-  @media(max-width:460px){.chips{grid-template-columns:1fr}}
-  .chip{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:14px;cursor:pointer;font-weight:500;font-size:0.98rem;text-align:left;transition:all .15s ease;user-select:none;display:flex;align-items:center;gap:10px}
-  .chip:hover{border-color:var(--ash)}
-  .chip.sel{border-color:var(--fix);background:rgba(61,220,151,0.1);box-shadow:0 0 0 1px var(--fix)}
-  .chip .box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--ash-dim);flex-shrink:0;position:relative;transition:all .15s ease}
-  .chip.sel .box{border-color:var(--fix);background:var(--fix)}
-  .chip.sel .box::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--ink);font-weight:700}
-
-  .row-btns{display:flex;gap:12px;margin-top:20px}
-  button{font-family:inherit;cursor:pointer;border:none;font-size:1.05rem;font-weight:600;padding:15px 24px;border-radius:12px;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
-  .next{flex:1;background:var(--fix);color:var(--ink)}
-  .next:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(61,220,151,0.35)}
-  .next:disabled{opacity:0.6;cursor:default;transform:none;box-shadow:none}
-  .prev{background:transparent;color:var(--ash);border:1px solid var(--line)}
-  .prev:hover{color:var(--paper);border-color:var(--ash)}
-
-  .micro{color:var(--ash);font-size:0.84rem;margin-top:20px;font-family:"JetBrains Mono"}
-  .micro b{color:var(--fix);font-weight:500}
-  .attach-note{color:var(--ash-dim);font-size:0.82rem;margin-top:-2px;margin-bottom:6px}
-
-  .done{text-align:center}
-  .done .ring{width:80px;height:80px;margin:0 auto 24px;border-radius:50%;background:radial-gradient(circle,rgba(61,220,151,0.18),transparent 70%);border:2px solid var(--fix);display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--fix)}
-  .done h1,.done h2{font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:14px}
-  .done .sub{color:#C0C6CF;font-size:1.06rem;margin-bottom:26px}
-  .checklist{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:24px}
-  .checklist h3{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ash);margin-bottom:14px;font-weight:700;font-family:"JetBrains Mono"}
-  .checklist .ci{display:flex;gap:12px;padding:8px 0;align-items:flex-start;color:#D0D4DB;font-size:0.96rem}
-  .checklist .ci .dot{color:var(--fix);font-weight:700;flex-shrink:0;font-family:"JetBrains Mono"}
-  .summary{font-size:0.9rem;color:var(--ash);margin-bottom:22px;line-height:1.6}
-  .summary b{color:var(--paper)}
-  .resend{display:inline-flex;align-items:center;gap:8px;color:var(--fix);font-size:0.95rem;font-family:"JetBrains Mono";border-bottom:1px solid transparent;transition:border-color .2s ease}
-  .resend:hover{border-color:var(--fix)}
-
-  .hidden{display:none}
-  .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-  .trust-links{margin-top:14px;font-size:0.82rem;color:var(--ash-dim);line-height:1.5}
-  .trust-links a{color:var(--ash);text-decoration:underline}
-  .trust-links a:hover{color:var(--paper)}
-  .spinner{width:16px;height:16px;border:2px solid rgba(7,18,12,0.35);border-top-color:var(--ink);border-radius:50%;display:inline-block;vertical-align:-3px;margin-right:8px;animation:spin .7s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  :focus-visible{outline:2px solid var(--fix);outline-offset:3px;border-radius:8px}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start an AI Revenue Brief — Arvinify</title>
+  <meta name="description" content="Share the bottleneck in your lead journey. Arvinify will qualify the request and send a focused next step.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#050b14">
+  <link rel="canonical" href="https://www.arvinify.com/start">
+  <link rel="icon" type="image/svg+xml" href="/assets/arvinify-mark.svg">
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #050b14;
+      --panel: #0a1727;
+      --ink: #f2f7fb;
+      --muted: #9fb0c2;
+      --quiet: #6f8398;
+      --line: rgba(153, 185, 211, .16);
+      --line-strong: rgba(110, 231, 255, .36);
+      --cyan: #6ee7ff;
+      --mint: #7cf7c5;
+      --error: #ff8b86;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 2%, rgba(46, 168, 255, .15), transparent 29rem),
+        radial-gradient(circle at 7% 92%, rgba(56, 235, 188, .09), transparent 28rem),
+        #050b14;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .13;
+      background-image: linear-gradient(rgba(140,185,220,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(140,185,220,.08) 1px,transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom,#000,transparent 86%);
+    }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
+    ::selection { color: #03131a; background: var(--mint); }
+    .topbar { min-height: 74px; display: flex; align-items: center; border-bottom: 1px solid rgba(153,185,211,.11); background: rgba(5,11,20,.72); backdrop-filter: blur(18px); }
+    .topbar-inner { width: min(calc(100% - 40px),1120px); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; letter-spacing: -.035em; }
+    .brand img { width: 32px; height: 32px; }
+    .back { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s ease; }
+    .back:hover { color: var(--cyan); }
+    main { width: min(calc(100% - 40px),1120px); margin: 0 auto; padding: 54px 0 84px; }
+    .shell { position: relative; display: grid; grid-template-columns: 330px minmax(0,1fr); min-height: 650px; overflow: hidden; border: 1px solid rgba(110,231,255,.24); border-radius: 30px; background: rgba(7,17,31,.82); box-shadow: 0 38px 110px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.035); isolation: isolate; }
+    .shell::after { content: ""; position: absolute; inset: -65% -40%; z-index: -1; pointer-events: none; transform: translateX(-45%) rotate(12deg); background: linear-gradient(90deg,transparent 43%,rgba(194,247,255,.045),transparent 57%); animation: scan 9s ease-in-out infinite; }
+    @keyframes scan { 0%,22% { transform: translateX(-45%) rotate(12deg); opacity: 0; } 40% { opacity: 1; } 68%,100% { transform: translateX(45%) rotate(12deg); opacity: 0; } }
+    .context { position: relative; padding: 38px 32px; border-right: 1px solid var(--line); background: radial-gradient(circle at 10% 0%,rgba(110,231,255,.10),transparent 18rem),rgba(8,22,37,.80); }
+    .eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 28px; color: var(--cyan); font: 700 .68rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .context h1 { max-width: 260px; margin: 0 0 17px; font-size: clamp(2rem,3.5vw,3.05rem); line-height: 1.01; letter-spacing: -.055em; text-wrap: balance; }
+    .context > p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .context-meta { position: absolute; left: 32px; right: 32px; bottom: 34px; display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .meta-item { display: grid; grid-template-columns: 27px 1fr; gap: 10px; align-items: start; color: #c7d3dd; font-size: .81rem; }
+    .meta-no { color: var(--mint); font: 700 .66rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; }
+    .workspace { padding: 38px clamp(26px,5vw,62px) 46px; }
+    .progress-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 11px; }
+    .progress-label { color: var(--muted); font: 700 .69rem/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing: .1em; }
+    .secure { display: inline-flex; align-items: center; gap: 7px; color: var(--quiet); font-size: .72rem; }
+    .secure::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 11px rgba(124,247,197,.7); }
+    .progress { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 38px; }
+    .progress span { height: 3px; overflow: hidden; border-radius: 99px; background: rgba(153,185,211,.13); }
+    .progress span::after { content: ""; display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg,var(--cyan),var(--mint)); transition: transform .65s var(--ease); }
+    .progress span.on::after { transform: scaleX(1); }
+    .step { display: none; }
+    .step.active { display: block; animation: enter .55s var(--ease) both; }
+    @keyframes enter { from { opacity: 0; transform: translateY(18px); filter: blur(5px); } to { opacity: 1; transform: none; filter: none; } }
+    .step h2 { margin: 0 0 9px; font-size: clamp(1.8rem,4vw,2.7rem); line-height: 1.05; letter-spacing: -.048em; text-wrap: balance; }
+    .intro { max-width: 610px; margin: 0 0 29px; color: var(--muted); }
+    .field { margin-bottom: 19px; }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label, legend { display: block; margin-bottom: 8px; color: #dce7ef; font-size: .84rem; font-weight: 680; }
+    .optional { color: var(--quiet); font-weight: 500; }
+    input, textarea, select { width: 100%; min-height: 50px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; outline: none; color: var(--ink); background-color: rgba(13,31,50,.72); transition: border-color .2s ease,background .2s ease,box-shadow .2s ease; }
+    input::placeholder, textarea::placeholder { color: #63778b; }
+    input:focus, textarea:focus, select:focus { border-color: var(--cyan); background-color: rgba(14,34,55,.94); box-shadow: 0 0 0 4px rgba(110,231,255,.07); }
+    textarea { min-height: 105px; resize: vertical; line-height: 1.5; }
+    select { appearance: none; background-image: linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%); background-position: calc(100% - 19px) 22px,calc(100% - 14px) 22px; background-size: 5px 5px; background-repeat: no-repeat; }
+    fieldset { min-width: 0; margin: 0 0 21px; padding: 0; border: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+    .chip { min-height: 42px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 11px; color: #b9c8d5; background: rgba(13,31,50,.63); cursor: pointer; font-size: .82rem; font-weight: 650; transition: transform .2s var(--ease),border-color .2s ease,color .2s ease,background .2s ease; }
+    .chip:hover { transform: translateY(-2px); border-color: rgba(110,231,255,.35); color: var(--ink); }
+    .chip[aria-pressed="true"] { color: #03131a; border-color: transparent; background: linear-gradient(135deg,var(--mint),var(--cyan)); box-shadow: 0 8px 24px rgba(75,221,229,.14); }
+    .error { min-height: 18px; margin: 6px 0 0; color: var(--error); font-size: .78rem; }
+    .consent { display: grid; grid-template-columns: 20px 1fr; gap: 11px; align-items: start; color: var(--muted); font-size: .8rem; cursor: pointer; }
+    .consent input { width: 18px; min-height: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--mint); }
+    .consent a { color: #d5e2eb; }
+    .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    .actions { display: flex; align-items: center; gap: 11px; margin-top: 28px; }
+    .button { position: relative; min-height: 49px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 12px; color: var(--ink); background: rgba(110,231,255,.07); cursor: pointer; font-weight: 750; letter-spacing: -.01em; text-decoration: none; transition: transform .3s var(--ease),box-shadow .3s ease,background .2s ease; }
+    .button:hover { transform: translateY(-2px); background: rgba(110,231,255,.13); }
+    .button.primary { flex: 1; color: #03131a; border-color: transparent; background: linear-gradient(135deg,var(--mint),var(--cyan)); box-shadow: 0 12px 34px rgba(75,221,229,.18); }
+    .button.primary:hover { box-shadow: 0 17px 42px rgba(75,221,229,.27); }
+    .button:disabled { opacity: .58; cursor: wait; transform: none; }
+    .button.back-button { color: var(--muted); }
+    .spinner { width: 15px; height: 15px; border: 2px solid rgba(3,19,26,.28); border-top-color: #03131a; border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .success { text-align: left; }
+    .success-mark { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 25px; border: 1px solid rgba(124,247,197,.45); border-radius: 16px; color: var(--mint); background: rgba(124,247,197,.08); box-shadow: 0 0 36px rgba(124,247,197,.08); font-size: 1.35rem; }
+    .success-card { margin-top: 25px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: rgba(13,31,50,.62); }
+    .success-card strong { display: block; margin-bottom: 7px; }
+    .success-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .success .actions { align-items: stretch; }
+    .success .button.primary { flex: initial; }
+    @media (max-width: 820px) {
+      main { padding-top: 26px; }
+      .shell { grid-template-columns: 1fr; min-height: 0; border-radius: 24px; }
+      .context { padding: 28px 26px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .context h1 { max-width: 520px; font-size: clamp(2rem,7vw,2.75rem); }
+      .context-meta { display: none; }
+      .workspace { padding: 28px 26px 36px; }
+      .progress { margin-bottom: 29px; }
+    }
+    @media (max-width: 560px) {
+      .topbar { min-height: 66px; }
+      .topbar-inner, main { width: min(calc(100% - 28px),1120px); }
+      main { padding: 18px 0 54px; }
+      .shell { border-radius: 20px; }
+      .context { padding: 24px 20px; }
+      .context h1 { margin-bottom: 10px; font-size: 2rem; }
+      .context > p { font-size: .88rem; }
+      .eyebrow { margin-bottom: 18px; }
+      .workspace { padding: 23px 20px 29px; }
+      .secure { display: none; }
+      .step h2 { font-size: 1.75rem; }
+      .intro { margin-bottom: 23px; font-size: .92rem; }
+      .field-grid { grid-template-columns: 1fr; gap: 0; }
+      .chip { flex: 1 1 calc(50% - 9px); }
+      .actions { align-items: stretch; flex-direction: column-reverse; }
+      .button { width: 100%; }
+      .success .actions { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
 </head>
 <body>
-
-<div class="bar">
-  <div class="bar-in">
-    <a class="logo" href="/" aria-label="Arvinify home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#14171C"/><path d="M30 70 L50 28 L70 70" stroke="#3DDC97" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="40" y1="56" x2="60" y2="56" stroke="#F4F5F2" stroke-width="9" stroke-linecap="round"/></svg>
-      Arvinify
-    </a>
-    <a class="back" href="/">← Back to site</a>
-  </div>
-</div>
-
-<main class="stage">
-  <div class="card">
-
-    <div id="progress">
-      <div class="steps-bar">
-        <div class="pip on" data-pip="1"></div>
-        <div class="pip" data-pip="2"></div>
-        <div class="pip" data-pip="3"></div>
-      </div>
-      <div class="step-count" id="stepCount">STEP 1 OF 3</div>
+  <header class="topbar"><div class="topbar-inner"><a class="brand" href="/" aria-label="Arvinify home"><img src="/assets/arvinify-mark.svg" alt="" width="64" height="64"><span>Arvinify</span></a><a class="back" href="/">← Back to site</a></div></header>
+  <main>
+    <div class="shell">
+      <aside class="context">
+        <div class="eyebrow">AI revenue brief</div>
+        <h1>Start with the bottleneck.</h1>
+        <p>No discovery-call gate. Give us the operating context and the system will shape a useful next step.</p>
+        <ol class="context-meta" aria-label="What happens next">
+          <li class="meta-item"><span class="meta-no">01</span><span>Your request is validated and structured.</span></li>
+          <li class="meta-item"><span class="meta-no">02</span><span>AI qualifies the opportunity with guardrails.</span></li>
+          <li class="meta-item"><span class="meta-no">03</span><span>You receive a focused response and next step.</span></li>
+        </ol>
+      </aside>
+      <section class="workspace">
+        <div id="formChrome">
+          <div class="progress-head"><span class="progress-label" id="progressLabel">01 / BUSINESS</span><span class="secure">Private submission</span></div>
+          <div class="progress" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+        </div>
+        <form id="leadForm" novalidate>
+          <section class="step active" data-step="1" aria-labelledby="step1Title">
+            <h2 id="step1Title">Give us the business context.</h2>
+            <p class="intro">A few concrete signals are more useful than a long pitch.</p>
+            <div class="field-grid">
+              <div class="field"><label for="companyName">Company name</label><input id="companyName" name="companyName" type="text" autocomplete="organization" maxlength="120" placeholder="Northstar Advisory" required><p class="error" data-error="companyName"></p></div>
+              <div class="field"><label for="websiteUrl">Website</label><input id="websiteUrl" name="websiteUrl" type="url" inputmode="url" autocomplete="url" maxlength="400" placeholder="yourcompany.com" required><p class="error" data-error="websiteUrl"></p></div>
+            </div>
+            <fieldset><legend>Business type</legend><div class="chips" data-group="businessType" data-multiple="false">
+              <button class="chip" type="button" data-value="agency" aria-pressed="false">Agency</button><button class="chip" type="button" data-value="consultancy" aria-pressed="false">Consultancy</button><button class="chip" type="button" data-value="it_msp" aria-pressed="false">IT / MSP</button><button class="chip" type="button" data-value="recruiting" aria-pressed="false">Recruiting</button><button class="chip" type="button" data-value="professional_services" aria-pressed="false">Professional services</button><button class="chip" type="button" data-value="other" aria-pressed="false">Other</button>
+            </div><p class="error" data-error="businessType"></p></fieldset>
+            <div class="actions"><button class="button primary" type="button" data-next>Continue <span aria-hidden="true">→</span></button></div>
+          </section>
+          <section class="step" data-step="2" aria-labelledby="step2Title">
+            <h2 id="step2Title">Where does revenue get stuck?</h2><p class="intro">Choose the main leak. We will use the rest as supporting context.</p>
+            <fieldset><legend>Primary bottleneck</legend><div class="chips" data-group="bottleneck" data-multiple="false">
+              <button class="chip" type="button" data-value="slow_response" aria-pressed="false">Slow first response</button><button class="chip" type="button" data-value="weak_qualification" aria-pressed="false">Weak qualification</button><button class="chip" type="button" data-value="follow_up" aria-pressed="false">Follow-up gaps</button><button class="chip" type="button" data-value="booking" aria-pressed="false">Booking friction</button><button class="chip" type="button" data-value="crm_handoff" aria-pressed="false">CRM handoff</button><button class="chip" type="button" data-value="other" aria-pressed="false">Other</button>
+            </div><p class="error" data-error="bottleneck"></p></fieldset>
+            <fieldset><legend>Tools in the current path <span class="optional">(select all that apply)</span></legend><div class="chips" data-group="tools" data-multiple="true">
+              <button class="chip" type="button" data-value="website" aria-pressed="false">Website / forms</button><button class="chip" type="button" data-value="inbox" aria-pressed="false">Shared inbox</button><button class="chip" type="button" data-value="calendar" aria-pressed="false">Calendar</button><button class="chip" type="button" data-value="crm" aria-pressed="false">CRM</button><button class="chip" type="button" data-value="chat" aria-pressed="false">Chat</button><button class="chip" type="button" data-value="none" aria-pressed="false">Nothing connected</button>
+            </div><p class="error" data-error="tools"></p></fieldset>
+            <div class="field-grid">
+              <div class="field"><label for="leadVolume">Inbound leads / month</label><select id="leadVolume" name="leadVolume" required><option value="">Select a range</option><option value="under_10">Under 10</option><option value="10_50">10–50</option><option value="51_200">51–200</option><option value="200_plus">200+</option><option value="unknown">Not sure</option></select><p class="error" data-error="leadVolume"></p></div>
+              <div class="field"><label for="dealValue">Typical client value</label><select id="dealValue" name="dealValue" required><option value="">Select a range</option><option value="under_2k">Under $2k</option><option value="2k_10k">$2k–$10k</option><option value="10k_50k">$10k–$50k</option><option value="50k_plus">$50k+</option><option value="unknown">Not sure</option></select><p class="error" data-error="dealValue"></p></div>
+            </div>
+            <div class="field"><label for="timeline">When should this improve?</label><select id="timeline" name="timeline" required><option value="">Select timing</option><option value="now">As soon as possible</option><option value="30_days">Within 30 days</option><option value="quarter">This quarter</option><option value="exploring">Exploring options</option></select><p class="error" data-error="timeline"></p></div>
+            <div class="field"><label for="details">What happens today? <span class="optional">(optional)</span></label><textarea id="details" name="details" maxlength="2500" placeholder="A lead fills the form, then someone checks the inbox and manually asks three follow-up questions..."></textarea><p class="error" data-error="details"></p></div>
+            <div class="actions"><button class="button back-button" type="button" data-back>Back</button><button class="button primary" type="button" data-next>Continue <span aria-hidden="true">→</span></button></div>
+          </section>
+          <section class="step" data-step="3" aria-labelledby="step3Title">
+            <h2 id="step3Title">Where should we send the next step?</h2><p class="intro">The response is shaped from the workflow details you just provided.</p>
+            <div class="field-grid">
+              <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" placeholder="Jordan Alvarez" required><p class="error" data-error="name"></p></div>
+              <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="160" placeholder="jordan@company.com" required><p class="error" data-error="email"></p></div>
+            </div>
+            <div class="field"><label for="phone">Phone <span class="optional">(optional)</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" placeholder="+1 604 555 0148"><p class="error" data-error="phone"></p></div>
+            <div class="hp" aria-hidden="true"><label for="company_website">Leave empty</label><input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
+            <label class="consent"><input id="consent" name="consent" type="checkbox" required><span>I agree that Arvinify may email me about this request and its relevant next steps. I can opt out at any time. See the <a href="/privacy" target="_blank">Privacy Policy</a>.</span></label>
+            <p class="error" data-error="consent"></p><p class="error" id="submitError" role="alert" aria-live="polite"></p>
+            <div class="actions"><button class="button back-button" type="button" data-back>Back</button><button class="button primary" id="submitButton" type="submit">Analyze my brief <span aria-hidden="true">↗</span></button></div>
+          </section>
+        </form>
+        <section class="step success" id="success" aria-labelledby="successTitle">
+          <div class="success-mark" aria-hidden="true">✓</div><h2 id="successTitle">Brief received.</h2><p class="intro" id="successMessage">Your workflow has been structured and the next step is on its way to your inbox.</p>
+          <div class="success-card"><strong>What happens now</strong><p>Arvinify reviews the AI-qualified brief before any implementation decision. You keep a human in the loop.</p></div>
+          <div class="actions"><a class="button primary" id="bookingButton" href="#" hidden>Choose a time <span aria-hidden="true">↗</span></a><a class="button" href="/">Back to Arvinify</a></div>
+        </section>
+      </section>
     </div>
-
-    <!-- STEP 1: URL -->
-    <section class="panel" id="step1">
-      <span class="reassure-top" id="reassure">● Flat-rate repair · from $199 USD</span>
-      <h1 id="s1title">Show us the problem.</h1>
-      <p class="sub" id="s1sub">Start with the website that needs a fix. Paste the address of the page where something is going wrong.</p>
-      <label for="url">Website URL</label>
-      <input id="url" type="url" inputmode="url" autocomplete="url" placeholder="https://yourbusiness.com" />
-      <div class="err" id="err1"></div>
-      <div class="row-btns">
-        <button class="next" onclick="next(1)">Continue</button>
-      </div>
-      <p class="micro">// No account needed · <b>no sales call</b></p>
-    </section>
-
-    <!-- STEP 2: what's wrong -->
-    <section class="panel hidden" id="step2">
-      <h2 id="s2title">What's going wrong?</h2>
-      <p class="sub" id="s2sub">Pick the closest match and add a short description. The more specific, the faster we can reproduce it.</p>
-      <label>Type of issue</label>
-      <div class="chips" id="chips" role="group" aria-label="Type of issue">
-        <div class="chip" data-cat="Mobile issue" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Mobile issue</div>
-        <div class="chip" data-cat="Form / booking" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Form / booking</div>
-        <div class="chip" data-cat="Shopify / ecommerce" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Shopify / ecommerce</div>
-        <div class="chip" data-cat="Broken layout" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Broken layout</div>
-        <div class="chip" data-cat="Button / navigation" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Button / navigation</div>
-        <div class="chip" data-cat="Speed / performance" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Speed / performance</div>
-        <div class="chip" data-cat="Something else" tabindex="0" role="button" aria-pressed="false"><span class="box" aria-hidden="true"></span>Something else</div>
-      </div>
-      <div class="err" id="err2cat"></div>
-      <label for="desc" style="margin-top:8px">Describe what's wrong <span class="hint" id="descHint">(required)</span></label>
-      <textarea id="desc" placeholder="e.g. On mobile, the checkout button does nothing when tapped. Works fine on desktop."></textarea>
-      <p class="attach-note">Have a screenshot? You'll be able to attach it to the email that opens on the last step.</p>
-      <div class="err" id="err2desc"></div>
-      <div class="row-btns">
-        <button class="prev" onclick="back(2)">Back</button>
-        <button class="next" onclick="next(2)">Continue</button>
-      </div>
-    </section>
-
-    <!-- STEP 3: contact -->
-    <section class="panel hidden" id="step3">
-      <h2>Where do we send the reply?</h2>
-      <p class="sub">We'll get back to you, usually within one business day, with next steps or a quick question.</p>
-      <label for="name">Your name</label>
-      <input id="name" type="text" autocomplete="name" placeholder="Jordan Alvarez" />
-      <div class="err" id="err3name"></div>
-      <label for="email">Email</label>
-      <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@yourbusiness.com" />
-      <div class="err" id="err3email"></div>
-      <label for="phone">Phone <span class="hint">(optional)</span></label>
-      <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" />
-      <div class="err" id="err3phone"></div>
-      <div class="hp" aria-hidden="true">
-        <label for="company_website">Leave this field empty</label>
-        <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
-      </div>
-      <div class="row-btns">
-        <button class="prev" onclick="back(3)">Back</button>
-        <button class="next" onclick="submitForm()" id="finishBtn">Send my request</button>
-      </div>
-      <div class="err" id="err3submit" role="alert" style="margin-top:12px"></div>
-      <p class="micro">// We only use these details to respond about your request.</p>
-      <p class="trust-links">By submitting, you agree to our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
-    </section>
-
-    <!-- SUCCESS -->
-    <section class="panel done hidden" id="success">
-      <div class="ring" aria-hidden="true">✓</div>
-      <h2 id="doneTitle">Request received.</h2>
-      <p class="sub" id="doneSub">Thanks. Your request is in and we'll reply, usually within one business day.</p>
-      <div class="checklist" id="doneChecklist">
-        <h3>What happens next</h3>
-        <div class="ci"><span class="dot">1</span><span>We reproduce the issue on your site and confirm the scope and flat price.</span></div>
-        <div class="ci"><span class="dot">2</span><span>You approve the scope before any work begins.</span></div>
-        <div class="ci"><span class="dot">3</span><span>We fix it and verify the affected area before closing.</span></div>
-      </div>
-      <p class="summary" id="summary"></p>
-      <a class="back" href="/">← Back to homepage</a>
-    </section>
-
-  </div>
-</main>
-
-<script>
-  var params=new URLSearchParams(location.search);
-  var checkParam=params.get('check')==='1';
-  var tierParam=params.get('tier')||'';
-  var state={url:"",cat:"",desc:"",name:"",email:"",phone:""};
-
-  // Distinct intake modes driven by CTA context. Each sets the submitted
-  // submissionType/tier so the lead payload records where it came from.
-  var MODES={
-    "default":{badge:"● Flat-rate repair · from $199 USD",s1t:"Show us the problem.",s1s:"Start with the website that needs a fix. Paste the address of the page where something is going wrong.",type:"website_rescue",tier:"rescue",descOptional:false},
-    "check":{badge:"● Free Website Check · no cost",s1t:"Free Website Check.",s1s:"Not sure what's wrong? Send us your website and we'll take a quick look for obvious issues worth fixing.",s2t:"Anything you've noticed?",s2s:"Point us at what's bugging you, or leave it broad and we'll take a look.",type:"free_check",tier:"",descOptional:true,doneTitle:"Check request received.",doneSub:"Thanks. We'll review your website and reply with anything meaningful we find, usually within one business day."},
-    "advanced":{badge:"● Advanced Repair · from $399 USD",s1t:"Show us the problem.",s1s:"Advanced repairs cover more complex bugs and larger frontend problems. Start with the website and the page involved.",type:"website_rescue",tier:"advanced",descOptional:false},
-    "project":{badge:"● Larger Project · custom quote",s1t:"Tell us about the project.",s1s:"For work beyond a repair. Start with the website, then describe what you need built or changed.",type:"website_rescue",tier:"project",descOptional:false}
-  };
-  var modeKey=checkParam?"check":(tierParam==="advanced"?"advanced":(tierParam==="project"?"project":"default"));
-  var MODE=MODES[modeKey];
-
-  document.getElementById('reassure').textContent=MODE.badge;
-  document.getElementById('s1title').textContent=MODE.s1t;
-  document.getElementById('s1sub').textContent=MODE.s1s;
-  if(MODE.s2t)document.getElementById('s2title').textContent=MODE.s2t;
-  if(MODE.s2s)document.getElementById('s2sub').textContent=MODE.s2s;
-  if(MODE.descOptional)document.getElementById('descHint').textContent='(optional)';
-  if(MODE.doneTitle)document.getElementById('doneTitle').textContent=MODE.doneTitle;
-  if(MODE.doneSub)document.getElementById('doneSub').textContent=MODE.doneSub;
-
-  function setStep(n){
-    document.querySelectorAll('.panel').forEach(function(p){p.classList.add('hidden');});
-    document.getElementById('step'+n).classList.remove('hidden');
-    document.querySelectorAll('.pip').forEach(function(p){p.classList.toggle('on',Number(p.dataset.pip)<=n);});
-    document.getElementById('stepCount').textContent='STEP '+n+' OF 3';
-    document.getElementById('progress').classList.remove('hidden');
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-
-  function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
-  function validUrl(v){
-    var s=v.trim();
-    if(!s)return false;
-    // Accept with or without protocol; require a dot and no spaces.
-    return /^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/.test(s);
-  }
-
-  function next(from){
-    if(from===1){
-      var v=document.getElementById('url').value.trim();
-      var e=document.getElementById('err1');
-      if(!validUrl(v)){e.textContent="Enter a valid website address, e.g. yourbusiness.com";return;}
-      e.textContent="";state.url=v;setStep(2);
-    }else if(from===2){
-      var ec=document.getElementById('err2cat'),ed=document.getElementById('err2desc');
-      var ok=true;
-      if(!state.cat){ec.textContent="Pick the closest type of issue.";ok=false;}else{ec.textContent="";}
-      var desc=document.getElementById('desc').value.trim();
-      if(!MODE.descOptional&&!desc){ed.textContent="A short description helps us reproduce it.";ok=false;}else{ed.textContent="";}
-      if(!ok)return;
-      state.desc=desc;setStep(3);
-    }
-  }
-  function back(from){setStep(from-1);}
-
-  // Issue category chips (single select)
-  document.querySelectorAll('.chip').forEach(function(c){
-    var choose=function(){
-      document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('sel');x.setAttribute('aria-pressed','false');});
-      c.classList.add('sel');c.setAttribute('aria-pressed','true');state.cat=c.dataset.cat;
-      document.getElementById('err2cat').textContent="";
-    };
-    c.addEventListener('click',choose);
-    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});
-  });
-
-  var submitting=false;
-  function setLoading(on){
-    submitting=on;
-    var btn=document.getElementById('finishBtn');
-    btn.disabled=on;
-    btn.innerHTML=on?'<span class="spinner" aria-hidden="true"></span>Sending…':'Send my request';
-  }
-
-  function showSuccess(){
-    document.getElementById('progress').classList.add('hidden');
-    document.querySelectorAll('.panel').forEach(function(p){p.classList.add('hidden');});
-    document.getElementById('summary').innerHTML=
-      'For <b>'+escapeHtml(state.url)+'</b>'+(state.cat?' — '+escapeHtml(state.cat):'')+'. We\'ll reply to <b>'+escapeHtml(state.email)+'</b>.';
-    document.getElementById('success').classList.remove('hidden');
-    window.scrollTo({top:0,behavior:'smooth'});
-    window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({event:'intake_completed',context:modeKey,tier:MODE.tier||''});
-  }
-
-  function submitForm(){
-    if(submitting)return;
-    var name=document.getElementById('name').value.trim();
-    var email=document.getElementById('email').value.trim();
-    var phone=document.getElementById('phone').value.trim();
-    var en=document.getElementById('err3name'),ee=document.getElementById('err3email');
-    var es=document.getElementById('err3submit');
-    es.textContent="";
-    var ok=true;
-    if(!name){en.textContent="Tell us your name.";ok=false;}else{en.textContent="";}
-    if(!validEmail(email)){ee.textContent="Enter a valid email so we can reply.";ok=false;}else{ee.textContent="";}
-    if(!ok)return;
-    state.name=name;state.email=email;state.phone=phone;
-
-    // ── REAL SUBMISSION ────────────────────────────────────────
-    // POST to the serverless endpoint. The success screen is shown ONLY
-    // on a 2xx {ok:true} response — never on a failed or errored request.
-    var payload={
-      submissionType:MODE.type,
-      tier:MODE.tier,
-      websiteUrl:state.url,
-      issueCategory:state.cat,
-      description:state.desc,
-      name:state.name,
-      email:state.email,
-      phone:state.phone,
-      company_website:document.getElementById('company_website').value // honeypot
-    };
-    setLoading(true);
-    fetch('/api/rescue',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload)
-    }).then(function(res){
-      return res.json().catch(function(){return {};}).then(function(data){
-        if(!res.ok||!data.ok){throw new Error(data.error||'Something went wrong. Please try again.');}
-        showSuccess();
+  </main>
+  <script>
+    (() => {
+      const form = document.querySelector('#leadForm');
+      const steps = [...document.querySelectorAll('.step[data-step]')];
+      const pips = [...document.querySelectorAll('.progress span')];
+      const labels = ['01 / BUSINESS','02 / WORKFLOW','03 / CONTACT'];
+      const state = { businessType: '', bottleneck: '', tools: [] };
+      let current = 1;
+      const requestId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      const errorFor = (name,message='') => { const el=document.querySelector(`[data-error="${name}"]`); if(el) el.textContent=message; };
+      const value = (name) => document.querySelector(`[name="${name}"]`)?.value.trim() || '';
+      const validEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const validUrl = (url) => /^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(url);
+      document.querySelectorAll('[data-group]').forEach((group) => {
+        const key=group.dataset.group; const multiple=group.dataset.multiple==='true';
+        group.addEventListener('click',(event) => {
+          const chip=event.target.closest('.chip'); if(!chip) return;
+          if(multiple) {
+            const pressed=chip.getAttribute('aria-pressed')!=='true';
+            if(chip.dataset.value==='none'&&pressed) group.querySelectorAll('.chip').forEach((item)=>item.setAttribute('aria-pressed','false'));
+            else if(pressed) group.querySelector('[data-value="none"]')?.setAttribute('aria-pressed','false');
+            chip.setAttribute('aria-pressed',String(pressed));
+            state[key]=[...group.querySelectorAll('.chip[aria-pressed="true"]')].map((item)=>item.dataset.value);
+          } else {
+            group.querySelectorAll('.chip').forEach((item)=>item.setAttribute('aria-pressed',String(item===chip))); state[key]=chip.dataset.value;
+          }
+          errorFor(key);
+        });
       });
-    }).catch(function(err){
-      setLoading(false);
-      es.textContent=err.message||'We couldn’t submit your request. Please try again, or email hello@arvinify.com.';
-    });
-    // ───────────────────────────────────────────────────────────
-  }
-
-  function escapeHtml(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
-
-  // Enter advances text inputs
-  document.getElementById('url').addEventListener('keydown',function(e){if(e.key==='Enter')next(1);});
-  document.getElementById('name').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('email').focus();});
-  document.getElementById('email').addEventListener('keydown',function(e){if(e.key==='Enter')submitForm();});
-
-  window.dataLayer=window.dataLayer||[];
-  window.dataLayer.push({event:'intake_started',context:modeKey,tier:MODE.tier||''});
-</script>
-
+      function validate(step) {
+        let ok=true;
+        const require=(name,message,test=(v)=>Boolean(v))=>{ const v=name in state?state[name]:value(name); const valid=test(v); errorFor(name,valid?'':message); if(!valid) ok=false; };
+        if(step===1) { require('companyName','Enter the company name.'); require('websiteUrl','Enter a valid website, e.g. company.com.',validUrl); require('businessType','Choose the closest business type.'); }
+        if(step===2) { require('bottleneck','Choose the primary bottleneck.'); require('tools','Select at least one current tool.',(v)=>Array.isArray(v)&&v.length>0); require('leadVolume','Select a lead-volume range.'); require('dealValue','Select a typical client value.'); require('timeline','Choose the most realistic timing.'); }
+        if(step===3) { require('name','Enter your name.'); require('email','Enter a valid work email.',validEmail); const consent=document.querySelector('#consent').checked; errorFor('consent',consent?'':'Please confirm we may respond to this request.'); if(!consent) ok=false; }
+        return ok;
+      }
+      function showStep(next) {
+        current=next; steps.forEach((step)=>step.classList.toggle('active',Number(step.dataset.step)===current)); pips.forEach((pip,index)=>pip.classList.toggle('on',index<current)); document.querySelector('#progressLabel').textContent=labels[current-1]; window.scrollTo({top:0,behavior:'smooth'});
+      }
+      document.querySelectorAll('[data-next]').forEach((button)=>button.addEventListener('click',()=>{if(validate(current)) showStep(Math.min(3,current+1));}));
+      document.querySelectorAll('[data-back]').forEach((button)=>button.addEventListener('click',()=>showStep(Math.max(1,current-1))));
+      form.addEventListener('submit',async(event)=>{
+        event.preventDefault(); if(!validate(3)) return;
+        const button=document.querySelector('#submitButton'); const submitError=document.querySelector('#submitError'); submitError.textContent=''; button.disabled=true; button.innerHTML='<span class="spinner" aria-hidden="true"></span> Analyzing…';
+        const payload={requestId,companyName:value('companyName'),websiteUrl:value('websiteUrl'),businessType:state.businessType,bottleneck:state.bottleneck,tools:state.tools,leadVolume:value('leadVolume'),dealValue:value('dealValue'),timeline:value('timeline'),details:value('details'),name:value('name'),email:value('email'),phone:value('phone'),consent:document.querySelector('#consent').checked,company_website:value('company_website'),source:new URLSearchParams(location.search).get('source')||'website'};
+        try {
+          const response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); const result=await response.json().catch(()=>({})); if(!response.ok||!result.ok) throw new Error(result.error||'The brief could not be submitted.');
+          form.hidden=true; document.querySelector('#formChrome').hidden=true; document.querySelector('#success').classList.add('active'); if(result.message) document.querySelector('#successMessage').textContent=result.message;
+          if(result.bookingUrl){const booking=document.querySelector('#bookingButton'); booking.href=result.bookingUrl; booking.hidden=false;} window.scrollTo({top:0,behavior:'smooth'});
+        } catch(error) { submitError.textContent=error.message||'Something went wrong. Please try again or email hello@arvinify.com.'; button.disabled=false; button.innerHTML='Analyze my brief <span aria-hidden="true">↗</span>'; }
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Arvinify</title>
+  <rect width="64" height="64" rx="16" fill="#0A121E"/>
+  <path fill="#F5F7FA" fill-rule="evenodd" d="M32 9 55 53H43.5l-4.8-9.5H25.3L20.5 53H9L32 9Zm0 17.2-5 9.8h10l-5-9.8Z"/>
+</svg>

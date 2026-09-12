@@ -2,7 +2,17 @@
   "name": "arvinify",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
+  },
+  "dependencies": {
+    "ai": "^7.0.99",
+    "zod": "^4.6.2"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
   }
 }

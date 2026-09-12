@@ -1,24 +1,33 @@
-# Arvinify — arvinify.com
+# Arvinify
 
-Marketing site for Arvinify: automated missed-call recovery & 24/7 SMS booking for home service contractors (HVAC, plumbing, electrical, roofing, landscaping). Audience: US & Canada.
+Arvinify's production marketing site and AI revenue-intake system for B2B service firms.
 
-## Stack
-Static HTML/CSS — zero build step. Vercel serves files as-is.
+## What is live in this repository
 
-## Deploy (GitHub → Vercel)
-1. Push this folder to a GitHub repo.
-2. In Vercel: Add New → Project → import the repo.
-3. Framework Preset: **Other**. Build Command: empty. Output Directory: `.`
-4. Deploy. Then Settings → Domains → add `arvinify.com`.
+- High-end responsive landing page (`index.html`)
+- Three-step revenue brief (`start.html`)
+- Website Rescue brief preserved at `/rescue` (`rescue.html` + `api/rescue.js`)
+- AI qualification with a deterministic rules fallback (`api/lead.mjs`)
+- Immediate customer acknowledgement and owner notification through Resend
+- Qualified-lead booking handoff when `BOOKING_URL` is configured
+- Optional signed CRM webhook and one scheduled follow-up
+- Server-side validation, honeypot, request-size limit, origin check and best-effort rate limiting
 
-Every push to `main` auto-deploys to production.
+## Runtime
 
-## Files
-- `index.html` — the landing page (all CSS inline, SEO + JSON-LD schema baked in)
-- `robots.txt`, `sitemap.xml` — search indexing
-- `vercel.json` — clean URLs + security headers
+Static HTML/CSS/JavaScript plus Vercel Node.js Functions. There is no frontend build step.
 
-## To-do before launch
-- Replace `#start` CTA links with the real onboarding/checkout URL.
-- Add a real `og-image.png` (1200×630) at the root for link previews.
-- Submit sitemap in Google Search Console.
+```bash
+npm install
+npm test
+```
+
+## Deploy
+
+The GitHub repository is connected to the existing Vercel `arvinify` project. A push to `main` triggers the production deployment. Keep the Vercel framework preset set to **Other**, with no build command and `.` as the output directory.
+
+Before accepting real briefs, add the server-only values documented in `.env.example` to Vercel. At minimum, configure the Resend variables and a verified `LEAD_NOTIFY_FROM` address. AI Gateway uses Vercel OIDC in deployments; an explicit `AI_GATEWAY_API_KEY` is optional there.
+
+## Verification
+
+The test suite validates input normalization, enum rejection, deterministic scoring, Resend payload creation and qualified booking behavior without sending real email.
