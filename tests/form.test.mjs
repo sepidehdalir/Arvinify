@@ -20,19 +20,21 @@ test('pilot fit check advances through all steps and submits the expected payloa
   });
   const { document, Event } = dom.window;
 
-  document.querySelector('[name="companyName"]').value = 'North Shore Renovations';
-  document.querySelector('[name="websiteUrl"]').value = 'northshorerenovations.example';
-  document.querySelector('[data-group="businessType"] [data-value="renovation"]').click();
+  document.querySelector('[name="companyName"]').value = 'Northstar Advisory';
+  document.querySelector('[name="websiteUrl"]').value = 'northstar.example';
+  document.querySelector('[data-group="market"] [data-value="us"]').click();
+  document.querySelector('[data-group="businessType"] [data-value="consultancy"]').click();
   document.querySelector('.step[data-step="1"] [data-next]').click();
   assert.ok(document.querySelector('.step[data-step="2"]').classList.contains('active'));
 
-  document.querySelector('[data-group="bottleneck"] [data-value="slow_response"]').click();
+  document.querySelector('[data-group="bottleneck"] [data-value="profile_conversion"]').click();
+  document.querySelector('[data-group="tools"] [data-value="linkedin_personal"]').click();
+  document.querySelector('[data-group="tools"] [data-value="linkedin_company"]').click();
   document.querySelector('[data-group="tools"] [data-value="website"]').click();
-  document.querySelector('[data-group="tools"] [data-value="inbox"]').click();
   document.querySelector('[name="leadVolume"]').value = '51_200';
   document.querySelector('[name="dealValue"]').value = '10k_50k';
   document.querySelector('[name="timeline"]').value = '30_days';
-  document.querySelector('[name="details"]').value = 'The team manually reviews every request before replying.';
+  document.querySelector('[name="details"]').value = 'The founder posts on LinkedIn but interested buyers reach a generic homepage.';
   document.querySelector('.step[data-step="2"] [data-next]').click();
   assert.ok(document.querySelector('.step[data-step="3"]').classList.contains('active'));
 
@@ -45,9 +47,10 @@ test('pilot fit check advances through all steps and submits the expected payloa
   assert.equal(requests.length, 1);
   assert.equal(requests[0].url, '/api/lead');
   assert.equal(requests[0].body.source, 'linkedin');
-  assert.equal(requests[0].body.bottleneck, 'slow_response');
-  assert.equal(requests[0].body.businessType, 'renovation');
-  assert.deepEqual(requests[0].body.tools, ['website', 'inbox']);
+  assert.equal(requests[0].body.market, 'us');
+  assert.equal(requests[0].body.bottleneck, 'profile_conversion');
+  assert.equal(requests[0].body.businessType, 'consultancy');
+  assert.deepEqual(requests[0].body.tools, ['linkedin_personal', 'linkedin_company', 'website']);
   assert.equal(requests[0].body.phone, '');
   assert.equal(requests[0].body.consent, true);
   assert.equal(document.querySelector('#leadForm').hidden, true);
@@ -65,6 +68,7 @@ test('form blocks progress until required business context is present', () => {
   assert.ok(document.querySelector('.step[data-step="1"]').classList.contains('active'));
   assert.match(document.querySelector('[data-error="companyName"]').textContent, /company name/i);
   assert.match(document.querySelector('[data-error="websiteUrl"]').textContent, /valid website/i);
+  assert.match(document.querySelector('[data-error="market"]').textContent, /primary market/i);
   assert.equal(document.querySelector('[name="phone"]'), null);
   dom.window.close();
 });

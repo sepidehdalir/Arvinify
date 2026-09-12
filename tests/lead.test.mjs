@@ -5,18 +5,19 @@ import handler, { rulesQualification, validateLead } from '../api/lead.mjs';
 function validBody(overrides = {}) {
   return {
     requestId: '123e4567-e89b-12d3-a456-426614174000',
-    companyName: 'North Shore Renovations',
-    websiteUrl: 'northshorerenovations.example',
-    businessType: 'renovation',
-    bottleneck: 'slow_response',
-    tools: ['website', 'inbox', 'calendar', 'crm'],
+    companyName: 'Northstar Advisory',
+    websiteUrl: 'northstar.example',
+    market: 'us',
+    businessType: 'consultancy',
+    bottleneck: 'profile_conversion',
+    tools: ['linkedin_personal', 'linkedin_company', 'website', 'inbox'],
     leadVolume: '200_plus',
     dealValue: '50k_plus',
     timeline: 'now',
-    details: 'New renovation requests wait in a shared inbox before a person asks for the address, project timing and site photos.',
+    details: 'The founder posts on LinkedIn, but interested buyers reach a generic homepage and the team cannot attribute qualified opportunities.',
     name: 'Jordan Alvarez',
-    email: 'jordan@northshorerenovations.example',
-    phone: '+1 604 555 0148',
+    email: 'jordan@northstar.example',
+    phone: '',
     consent: true,
     source: 'test',
     ...overrides
@@ -37,13 +38,15 @@ function responseMock() {
 test('validates and normalizes an accepted lead', () => {
   const result = validateLead(validBody());
   assert.ok(result.lead);
-  assert.equal(result.lead.websiteUrl, 'https://northshorerenovations.example/');
-  assert.equal(result.lead.email, 'jordan@northshorerenovations.example');
-  assert.deepEqual(result.lead.tools, ['website', 'inbox', 'calendar', 'crm']);
+  assert.equal(result.lead.websiteUrl, 'https://northstar.example/');
+  assert.equal(result.lead.email, 'jordan@northstar.example');
+  assert.equal(result.lead.market, 'us');
+  assert.deepEqual(result.lead.tools, ['linkedin_personal', 'linkedin_company', 'website', 'inbox']);
 });
 
 test('rejects missing consent and invalid enum values', () => {
   assert.match(validateLead(validBody({ consent: false })).error, /Consent/);
+  assert.match(validateLead(validBody({ market: 'uk' })).error, /market/);
   assert.match(validateLead(validBody({ businessType: 'ignore_previous_instructions' })).error, /business type/);
 });
 
@@ -79,9 +82,9 @@ test('handler uses rules fallback, sends both async emails, and returns no meeti
     assert.equal('bookingUrl' in res.payload, false);
     assert.match(res.payload.message, /pilot fit decision/i);
     assert.equal(calls.length, 2);
-    assert.deepEqual(calls.map((call) => call.body.to[0]).sort(), ['hello@arvinify.com', 'jordan@northshorerenovations.example']);
+    assert.deepEqual(calls.map((call) => call.body.to[0]).sort(), ['hello@arvinify.com', 'jordan@northstar.example']);
     assert.ok(calls.every((call) => call.options.headers['Idempotency-Key']));
-    const customerEmail = calls.find((call) => call.body.to[0] === 'jordan@northshorerenovations.example');
+    const customerEmail = calls.find((call) => call.body.to[0] === 'jordan@northstar.example');
     assert.match(customerEmail.body.text, /No call or meeting is required/i);
     assert.match(customerEmail.body.subject, /pilot fit request/i);
   } finally {

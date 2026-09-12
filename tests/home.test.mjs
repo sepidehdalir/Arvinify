@@ -7,18 +7,21 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const dom = new JSDOM(html, { url: 'https://www.arvinify.com/' });
 const { document } = dom.window;
 
-test('homepage presents one fixed-price Canadian home-service pilot', () => {
-  assert.match(document.title, /Canadian Home Services/i);
-  assert.match(document.querySelector('h1').textContent, /quote-ready job/i);
+test('homepage presents a LinkedIn-first pilot for the United States and Canada', () => {
+  assert.match(document.title, /LinkedIn-to-Revenue/i);
+  assert.match(document.querySelector('h1').textContent, /LinkedIn attention/i);
+  assert.match(document.querySelector('#pilot').textContent, /US\$995/);
   assert.match(document.querySelector('#pilot').textContent, /C\$1,250/);
+  assert.match(document.querySelector('#pilot').textContent, /US\$249\/month/);
   assert.match(document.querySelector('#pilot').textContent, /C\$299\/month/);
-  assert.match(document.querySelector('#pilot').textContent, /One live source/i);
+  assert.ok(document.querySelector('a[href^="/buy"]'));
 });
 
 test('homepage keeps the sales path written and avoids unproven results', () => {
   const text = document.body.textContent;
   assert.match(text, /No sales call required/i);
   assert.match(text, /30-day scorecard/i);
+  assert.match(text, /scraping, mass DMs/i);
   assert.doesNotMatch(text, /guaranteed revenue|increase conversions by|customers increased/i);
 });
 

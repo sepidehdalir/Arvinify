@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arvinify — AI Lead Response for Canadian Home Services</title>
-  <meta name="description" content="Arvinify installs monitored lead-response systems for Canadian contractors and home-service companies: fast replies, job-detail collection, qualification, follow-up and owner-ready handoff.">
+  <title>Arvinify — LinkedIn-to-Revenue Systems for US & Canadian B2B Services</title>
+  <meta name="description" content="Arvinify turns LinkedIn attention into qualified B2B opportunities with a focused offer, conversion page, written qualification, human-approved follow-up and secure online checkout.">
   <meta name="theme-color" content="#07111f">
-  <meta property="og:title" content="Arvinify — AI Lead Response for Home Services">
-  <meta property="og:description" content="Turn new service enquiries into quote-ready next steps—without adding another person to the inbox.">
+  <meta property="og:title" content="Arvinify — LinkedIn-to-Revenue Systems">
+  <meta property="og:description" content="Turn LinkedIn attention into qualified opportunities with a written, measurable sales path for the US and Canada.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.arvinify.com/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Arvinify — AI Lead Response for Home Services">
-  <meta name="twitter:description" content="Fast replies, complete job details and a clean owner handoff for Canadian home-service companies.">
+  <meta name="twitter:title" content="Arvinify — LinkedIn-to-Revenue Systems">
+  <meta name="twitter:description" content="A focused LinkedIn acquisition path, written qualification and online checkout for B2B service firms.">
   <link rel="canonical" href="https://www.arvinify.com/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230A121E'/%3E%3Cpath fill='%23F5F7FA' fill-rule='evenodd' d='M32 9 55 53H43.5l-4.8-9.5H25.3L20.5 53H9L32 9Zm0 17.2-5 9.8h10l-5-9.8Z'/%3E%3C/svg%3E">
   <style>
@@ -500,6 +500,11 @@
     .pilot-price strong { font-size: clamp(2.65rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.06em; }
     .pilot-price span { color: var(--muted); font-weight: 650; }
     .pilot-monthly { margin: 0 0 28px; color: #c9d6df; font-weight: 650; }
+    .market-prices { display: grid; gap: 10px; margin: 31px 0 24px; }
+    .market-price { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: rgba(5, 14, 25, .42); }
+    .market-price span { color: var(--muted); font-size: .82rem; font-weight: 700; }
+    .market-price strong { font-size: clamp(1.55rem, 3vw, 2.1rem); line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
+    .pilot-actions { display: flex; flex-wrap: wrap; gap: 10px; }
     .pilot-note { display: block; margin-top: 13px; color: var(--quiet); font-size: .78rem; }
     .pilot-includes { padding: clamp(34px, 5vw, 62px); background: rgba(7, 20, 33, .58); }
     .pilot-includes h3 { margin-bottom: 20px; font-size: 1.18rem; }
@@ -661,16 +666,25 @@
       "name": "Arvinify",
       "url": "https://www.arvinify.com/",
       "email": "hello@arvinify.com",
-      "description": "Monitored AI lead-response systems for Canadian contractors and home-service companies.",
-      "serviceType": "AI lead response and qualification automation",
-      "areaServed": "Canada",
-      "makesOffer": {
-        "@type": "Offer",
-        "name": "Home-Service Lead Response Founding Pilot",
-        "price": "1250",
-        "priceCurrency": "CAD",
-        "description": "One-time pilot setup. Ongoing monitoring is CAD 299 per month, plus applicable tax and third-party usage fees."
-      },
+      "description": "LinkedIn-to-revenue systems for B2B service firms in the United States and Canada.",
+      "serviceType": "LinkedIn acquisition, written lead qualification and conversion automation",
+      "areaServed": ["United States", "Canada"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "LinkedIn-to-Revenue Founding Pilot — United States",
+          "price": "995",
+          "priceCurrency": "USD",
+          "description": "One-time pilot setup. Ongoing monitoring is USD 249 per month after written go-live approval."
+        },
+        {
+          "@type": "Offer",
+          "name": "LinkedIn-to-Revenue Founding Pilot — Canada",
+          "price": "1250",
+          "priceCurrency": "CAD",
+          "description": "One-time pilot setup. Ongoing monitoring is CAD 299 per month after written go-live approval."
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "North Vancouver",
@@ -694,7 +708,7 @@
         <a href="#fit">Who it’s for</a>
         <a href="#pilot">Pilot & pricing</a>
         <a href="#faq">FAQ</a>
-        <a class="button" href="/start">Start a brief <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="button" href="/start?source=linkedin">Start in writing <span class="arrow" aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -703,43 +717,43 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Lead response systems · Canadian home services</div>
-          <h1>Turn every new enquiry <span class="accent">into a quote-ready job.</span></h1>
-          <p>Arvinify installs a monitored workflow for contractors and home-service companies—designed to reply in under 60 seconds, collect job details and photos, qualify fit and hand your team a clear next action.</p>
+          <div class="eyebrow">LinkedIn-first acquisition · United States + Canada</div>
+          <h1>Turn LinkedIn attention <span class="accent">into qualified opportunities.</span></h1>
+          <p>Arvinify installs a measurable LinkedIn-to-inbox system for B2B service firms: one clear offer, a focused conversion page, written qualification, human-approved follow-up and secure online checkout.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/start?source=homepage">Check your fit — written only <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="button" href="#pilot">See pilot pricing <span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="/start?source=linkedin">Check your fit — written only <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="button" href="/buy?source=linkedin">Buy the pilot online <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
           <ul class="micro-proof" aria-label="Working principles">
-            <li>Fixed pilot price</li>
-            <li>Keep your current website</li>
+            <li>LinkedIn is the primary entry channel</li>
+            <li>No scraping or mass-DM bots</li>
             <li>No sales call required</li>
           </ul>
         </div>
 
-        <div class="workflow-stage" role="img" aria-label="Example home-service lead-response workflow">
+        <div class="workflow-stage" role="img" aria-label="Example LinkedIn-to-revenue workflow">
           <img class="workflow-art" src="assets/revenue-workflow.png" alt="">
           <div class="terminal-bar"><span>LEAD ROUTER / ACTIVE</span><span class="live">MONITORED</span></div>
           <div class="flow-line" aria-hidden="true"></div>
           <div class="flow">
             <div class="flow-step">
               <div class="flow-icon">01</div>
-              <div class="flow-label">Capture the enquiry<small>Website form or shared inbox</small></div>
+              <div class="flow-label">Create qualified attention<small>Profile, company page and approved content</small></div>
               <span class="status">received</span>
             </div>
             <div class="flow-step">
               <div class="flow-icon">02</div>
-              <div class="flow-label">Reply in under a minute<small>Useful, on-brand acknowledgement</small></div>
+              <div class="flow-label">Route LinkedIn interest<small>One CTA to a focused conversion page</small></div>
               <span class="status">ready</span>
             </div>
             <div class="flow-step">
               <div class="flow-icon">03</div>
-              <div class="flow-label">Gather scope and photos<small>Job, location, timing and fit</small></div>
+              <div class="flow-label">Qualify in writing<small>Need, value, timing and decision path</small></div>
               <span class="status">matched</span>
             </div>
             <div class="flow-step">
               <div class="flow-icon">04</div>
-              <div class="flow-label">Send the owner handoff<small>Clean summary and follow-up path</small></div>
+              <div class="flow-label">Convert without a call<small>Written scope, follow-up and checkout</small></div>
               <span class="status">complete</span>
             </div>
           </div>
@@ -749,11 +763,11 @@
 
     <section class="signal-band" aria-label="Core workflow outcomes">
       <div class="wrap signal-grid">
-        <strong>One focused path from enquiry to action.</strong>
-        <div class="signal-item"><span>RESPOND</span>Target under 60 seconds</div>
-        <div class="signal-item"><span>COLLECT</span>Job details and photos</div>
-        <div class="signal-item"><span>QUALIFY</span>Service area and fit</div>
-        <div class="signal-item"><span>HAND OFF</span>Owner-ready summary</div>
+        <strong>One measurable path from LinkedIn to revenue.</strong>
+        <div class="signal-item"><span>POSITION</span>One offer and buyer</div>
+        <div class="signal-item"><span>CAPTURE</span>Tracked LinkedIn CTA</div>
+        <div class="signal-item"><span>QUALIFY</span>Fit, value and timing</div>
+        <div class="signal-item"><span>CONVERT</span>Written scope + checkout</div>
       </div>
     </section>
 
@@ -761,14 +775,14 @@
       <div class="wrap">
         <div class="section-heading">
           <div class="kicker">The revenue leak</div>
-          <h2>Good jobs disappear while the crew is busy.</h2>
-          <p>Home-service companies rarely need another generic chatbot. They need a dependable front door between a new enquiry and the person who decides what happens next.</p>
+          <h2>LinkedIn activity is not the same as pipeline.</h2>
+          <p>Most small B2B firms post, connect and answer messages without one controlled path that turns interest into a qualified next step.</p>
         </div>
         <div class="leak-grid">
-          <article class="leak-card"><span class="card-no">01 / SPEED</span><h3>Enquiries wait after hours</h3><p>A homeowner requests a quote at night and hears nothing until the next workday—or from a competitor first.</p></article>
-          <article class="leak-card"><span class="card-no">02 / CONTEXT</span><h3>Address and photos are missing</h3><p>Your team starts another back-and-forth just to learn the location, scope, timing and condition of the job.</p></article>
-          <article class="leak-card"><span class="card-no">03 / FIT</span><h3>Every lead looks the same</h3><p>Small, out-of-area and high-value requests all land in one inbox without a clear priority.</p></article>
-          <article class="leak-card"><span class="card-no">04 / FOLLOW-UP</span><h3>Next steps depend on memory</h3><p>Strong opportunities go quiet when nobody owns the reminder after the first reply or estimate.</p></article>
+          <article class="leak-card"><span class="card-no">01 / POSITION</span><h3>The profile has no sharp offer</h3><p>A buyer can understand the résumé but cannot see the specific business problem you solve or the next action to take.</p></article>
+          <article class="leak-card"><span class="card-no">02 / CONTENT</span><h3>Posts create views, not intent</h3><p>Useful content ends without a consistent CTA, tracked destination or reason for the right buyer to respond.</p></article>
+          <article class="leak-card"><span class="card-no">03 / FOLLOW-UP</span><h3>Interest gets buried in DMs</h3><p>Promising replies and profile visits rely on manual memory instead of a written qualification and follow-up path.</p></article>
+          <article class="leak-card"><span class="card-no">04 / BUYING</span><h3>Every sale still needs a meeting</h3><p>Even a ready buyer must wait for a call, custom proposal and invoice before a small, fixed-scope pilot can start.</p></article>
         </div>
       </div>
     </section>
@@ -776,16 +790,16 @@
     <section class="section system-section" id="system">
       <div class="wrap system-shell">
         <div class="system-top">
-          <div><div class="kicker">What we install</div><h2>A faster front desk for new jobs.</h2></div>
-          <p>The system handles repeatable intake and follow-up. Your team keeps control of pricing, commitments and every decision that requires trade judgment.</p>
+          <div><div class="kicker">What we install</div><h2>A LinkedIn path built to convert.</h2></div>
+          <p>The system handles positioning, capture and written qualification. You keep control of every post, message, promise and commercial decision.</p>
         </div>
         <div class="system-grid">
-          <article class="system-card"><div class="icon">IN</div><h3>Website and inbox capture</h3><p>Start from the enquiry sources you already use instead of forcing a full platform replacement.</p></article>
-          <article class="system-card"><div class="icon">60S</div><h3>Immediate branded reply</h3><p>A useful acknowledgement confirms receipt and tells the customer exactly what information comes next.</p></article>
-          <article class="system-card"><div class="icon">JOB</div><h3>Job-detail collection</h3><p>Ask only the questions your team needs, including location, timing, dimensions and photos when relevant.</p></article>
-          <article class="system-card"><div class="icon">FIT</div><h3>Service-area and fit rules</h3><p>Separate good-fit work from out-of-area, unsupported or incomplete requests before they interrupt the day.</p></article>
-          <article class="system-card"><div class="icon">OUT</div><h3>Owner-ready handoff</h3><p>Deliver a clean summary with contact details, scope, urgency and the recommended human next action.</p></article>
-          <article class="system-card"><div class="icon">OPS</div><h3>Follow-up and monitoring</h3><p>Run approved reminders, log outcomes and keep a visible human takeover point when judgment is needed.</p></article>
+          <article class="system-card"><div class="icon">LI</div><h3>LinkedIn offer and CTA</h3><p>Clarify the buyer, problem and fixed next step across the profile, company page and approved content.</p></article>
+          <article class="system-card"><div class="icon">PAGE</div><h3>Focused conversion page</h3><p>Give LinkedIn traffic one relevant destination instead of dropping interested buyers on a generic homepage.</p></article>
+          <article class="system-card"><div class="icon">FIT</div><h3>Written qualification</h3><p>Collect need, current process, value, timing and fit without requiring a discovery call or phone number.</p></article>
+          <article class="system-card"><div class="icon">IN</div><h3>Response and routing</h3><p>Send a useful acknowledgement and an owner-ready summary while the interest is still current.</p></article>
+          <article class="system-card"><div class="icon">PAY</div><h3>Secure online checkout</h3><p>Let ready buyers pay for the fixed pilot online in USD or CAD through Stripe-hosted checkout.</p></article>
+          <article class="system-card"><div class="icon">30D</div><h3>Measurement and follow-up</h3><p>Track source, qualified requests, written replies and purchases for 30 days before expanding the system.</p></article>
         </div>
       </div>
     </section>
@@ -794,14 +808,14 @@
       <div class="wrap fit-grid">
         <div class="fit-copy">
           <div class="kicker">Best fit</div>
-          <h2>Built for crews that cannot live in the inbox.</h2>
-          <p>The strongest fit is an owner-led Canadian home-service company receiving at least 10 enquiries a month and still handling intake manually.</p>
+          <h2>Built for high-value B2B services.</h2>
+          <p>The strongest fit is a US or Canadian firm with a clear service worth at least $2,000 and access to buyers on LinkedIn.</p>
         </div>
         <div class="fit-list">
-          <article class="fit-item"><div class="mono">BUILD</div><div><h3>General contractors and renovators</h3><p>Collect project type, address, target timing, budget context and site photos before the owner reviews it.</p></div></article>
-          <article class="fit-item"><div class="mono">TRADE</div><div><h3>Electrical, plumbing and HVAC</h3><p>Separate urgent service, planned work and out-of-area requests while keeping the right person informed.</p></div></article>
-          <article class="fit-item"><div class="mono">OUTDOOR</div><div><h3>Deck, fence and landscape companies</h3><p>Gather dimensions, access notes, material preferences and reference photos in one structured path.</p></div></article>
-          <article class="fit-item"><div class="mono">REPAIR</div><div><h3>Repair, cleaning and restoration</h3><p>Capture severity, location and availability, then route the enquiry with an approved response and priority.</p></div></article>
+          <article class="fit-item"><div class="mono">BUILD</div><div><h3>Commercial contractors</h3><p>Reach property, facility and construction decision-makers with one commercial offer and written project fit path.</p></div></article>
+          <article class="fit-item"><div class="mono">PRO</div><div><h3>Consultants and professional services</h3><p>Turn expertise-led content into qualified requests without forcing every interested buyer onto a call.</p></div></article>
+          <article class="fit-item"><div class="mono">AGENCY</div><div><h3>Agencies and studios</h3><p>Connect a specific packaged service to a landing page, fit criteria and direct online purchase.</p></div></article>
+          <article class="fit-item"><div class="mono">TECH</div><div><h3>IT, MSP and recruiting firms</h3><p>Route buyers by need, company fit, value and timing before a person handles the commercial decision.</p></div></article>
         </div>
       </div>
     </section>
@@ -813,9 +827,9 @@
           <h2>One workflow. Written approval. Measured for 30 days.</h2>
         </div>
         <div class="delivery-grid">
-          <article class="delivery-step"><span class="phase">Fit check</span><h3>Map it in writing</h3><p>Submit the current lead path. We confirm fit, inputs, exclusions and the exact workflow by email—no sales meeting.</p></article>
-          <article class="delivery-step"><span class="phase">Build</span><h3>Connect and approve</h3><p>We configure one lead source, qualification rules, messages, alerts and the human handoff for written approval.</p></article>
-          <article class="delivery-step"><span class="phase">Measure</span><h3>Run a 30-day scorecard</h3><p>Track response time, completed job details, qualified handoffs and follow-up coverage before expanding anything.</p></article>
+          <article class="delivery-step"><span class="phase">Fit check</span><h3>Define the buyer and offer</h3><p>Submit the current LinkedIn and sales path. We confirm fit, scope and exclusions by email—no sales meeting.</p></article>
+          <article class="delivery-step"><span class="phase">Build</span><h3>Connect LinkedIn to conversion</h3><p>We configure the CTA, landing page, qualification, response, follow-up and checkout for written approval.</p></article>
+          <article class="delivery-step"><span class="phase">Measure</span><h3>Run a 30-day scorecard</h3><p>Track LinkedIn-sourced visits, qualified requests, written follow-ups and paid pilots before expanding anything.</p></article>
         </div>
       </div>
     </section>
@@ -824,25 +838,28 @@
       <div class="wrap pilot-card">
         <div class="pilot-summary">
           <div class="kicker">Founding pilot · fixed scope</div>
-          <h2 id="pilot-title">Install the first working lead path.</h2>
-          <p>Start with one measurable enquiry source. Keep the website and inbox your team already knows.</p>
-          <div class="pilot-price"><strong>C$1,250</strong><span>setup</span></div>
-          <p class="pilot-monthly">Then C$299/month for monitoring and calibration.</p>
-          <a class="button button-primary" href="/start?source=founding-pilot">Apply in writing <span class="arrow" aria-hidden="true">↗</span></a>
-          <small class="pilot-note">Plus applicable tax. Third-party software, email, SMS or CRM usage is separate when required.</small>
+          <h2 id="pilot-title">Install one LinkedIn-to-revenue path.</h2>
+          <p>Choose the market where your company is based. The checkout payment covers the fixed setup; monitoring starts only after written go-live approval.</p>
+          <div class="market-prices">
+            <div class="market-price"><span>United States</span><strong>US$995</strong></div>
+            <div class="market-price"><span>Canada</span><strong>C$1,250</strong></div>
+          </div>
+          <p class="pilot-monthly">Then US$249/month or C$299/month for monitoring and calibration.</p>
+          <div class="pilot-actions"><a class="button button-primary" href="/buy?source=linkedin">Buy online <span class="arrow" aria-hidden="true">↗</span></a><a class="button" href="/start?source=linkedin">Check fit first</a></div>
+          <small class="pilot-note">Plus applicable tax. Third-party software, email, CRM or LinkedIn advertising spend is separate when required.</small>
         </div>
         <div class="pilot-includes">
           <h3>The pilot includes</h3>
           <ul class="check-list">
-            <li>One live source: website form or shared inbox</li>
-            <li>Immediate branded acknowledgement</li>
-            <li>Up to six job-qualification questions</li>
-            <li>Service-area and job-fit routing rules</li>
-            <li>Structured owner notification and human handoff</li>
-            <li>One approved follow-up sequence</li>
-            <li>Testing, monitoring and a 30-day scorecard</li>
+            <li>LinkedIn profile and company-page offer review</li>
+            <li>One tracked CTA and focused conversion page</li>
+            <li>Up to six written qualification questions</li>
+            <li>Immediate acknowledgement and owner-ready summary</li>
+            <li>One human-approved follow-up sequence</li>
+            <li>Secure Stripe checkout in USD or CAD</li>
+            <li>Testing and a 30-day source-to-purchase scorecard</li>
           </ul>
-          <p class="pilot-fit"><strong>Best fit:</strong> 10–200 inbound enquiries per month. Target launch is within 10 business days after access and written approval.</p>
+          <p class="pilot-fit"><strong>Best fit:</strong> B2B services worth $2,000+ with a defined buyer on LinkedIn. Target launch is within 10 business days after access and written approval.</p>
         </div>
       </div>
     </section>
@@ -851,12 +868,13 @@
       <div class="wrap faq-grid">
         <div class="section-heading"><div class="kicker">Straight answers</div><h2>Before we connect anything.</h2></div>
         <div class="faq-list">
-          <details><summary>Is this just a chatbot?</summary><p>No. The pilot is a complete lead path: capture, response, job-detail collection, fit rules, owner handoff, approved follow-up and monitoring. Chat is optional.</p></details>
+          <details><summary>Does Arvinify automate LinkedIn activity?</summary><p>Not with scraping, mass DMs, account sharing or unattended bots. Arvinify builds the conversion system around LinkedIn and keeps content and outreach human-approved.</p></details>
           <details><summary>Do we have to replace our website or CRM?</summary><p>Usually not. The pilot starts with one source you already use and connects only what the approved workflow requires.</p></details>
-          <details><summary>Does AI set prices or promise work?</summary><p>No. Your team keeps control of estimates, commitments and trade decisions. Automation handles only the approved intake, routing and follow-up rules.</p></details>
+          <details><summary>Do you guarantee leads or revenue?</summary><p>No. LinkedIn reach and buyer behaviour cannot be guaranteed. The pilot guarantees only the written scope we agree to build and the measurement needed to judge it.</p></details>
+          <details><summary>Can you serve US companies?</summary><p>Yes. The pilot is available to eligible B2B service firms in both the United States and Canada, with online setup payment in USD or CAD.</p></details>
           <details><summary>How quickly can the pilot go live?</summary><p>The target is within 10 business days after access, content and written approval are provided. The confirmed schedule is included in the written scope.</p></details>
           <details><summary>Do we need a sales call to start?</summary><p>No. Fit check, scoping, approval and delivery can run through the written brief and email. A phone number is not required.</p></details>
-          <details><summary>What does the monthly fee cover?</summary><p>Monitoring, failure checks, small message or rule adjustments and the pilot scorecard. New channels or major workflow changes are scoped separately in writing.</p></details>
+          <details><summary>Can we pay online?</summary><p>Yes. The fixed setup can be paid through secure Stripe-hosted checkout. Monthly monitoring is activated separately after written go-live approval.</p></details>
           <details><summary>Is Website Rescue still available?</summary><p>Yes. Existing clients can still use <a href="/rescue">Website Rescue</a> for urgent Shopify, WordPress, Webflow, Wix, Squarespace, React or Next.js issues.</p></details>
         </div>
       </div>
@@ -865,10 +883,11 @@
     <section class="cta-section">
       <div class="wrap cta-card">
         <div class="kicker">Three-minute written fit check</div>
-        <h2>See whether your lead flow fits the pilot.</h2>
-        <p>Share the current enquiry path, volume and typical job value. Arvinify will send a written fit decision and practical next step. No discovery call and no phone number required.</p>
+        <h2>Build your LinkedIn-to-revenue path.</h2>
+        <p>Share your buyer, offer and current LinkedIn path. Arvinify will send a written fit decision and practical next step. No discovery call and no phone number required.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="/start?source=final-cta">Check pilot fit <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="/start?source=linkedin">Check pilot fit <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="button" href="/buy?source=linkedin">Buy online</a>
         </div>
       </div>
     </section>
@@ -876,7 +895,7 @@
 
   <footer>
     <div class="wrap footer-grid">
-      <div>© 2026 Arvinify · North Vancouver, British Columbia · Serving Canada</div>
+      <div>© 2026 Arvinify · North Vancouver, British Columbia · Serving the United States and Canada</div>
       <div class="footer-links"><a href="mailto:hello@arvinify.com">Email</a><a href="/rescue">Website Rescue</a><a href="https://www.linkedin.com/company/arvinify/" target="_blank" rel="noreferrer">LinkedIn</a><a href="#top">Back to top ↑</a></div>
     </div>
   </footer>

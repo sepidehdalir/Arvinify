@@ -5,6 +5,12 @@
   "functions": {
     "api/lead.mjs": {
       "maxDuration": 30
+    },
+    "api/checkout.mjs": {
+      "maxDuration": 20
+    },
+    "api/stripe-webhook.mjs": {
+      "maxDuration": 20
     }
   },
   "headers": [
