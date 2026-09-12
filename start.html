@@ -215,9 +215,9 @@
           </section>
         </form>
         <section class="step success" id="success" aria-labelledby="successTitle">
-          <div class="success-mark" aria-hidden="true">✓</div><h2 id="successTitle">Brief received.</h2><p class="intro" id="successMessage">Your workflow has been structured and the next step is on its way to your inbox.</p>
-          <div class="success-card"><strong>What happens now</strong><p>Arvinify reviews the AI-qualified brief before any implementation decision. You keep a human in the loop.</p></div>
-          <div class="actions"><a class="button primary" id="bookingButton" href="#" hidden>Choose a time <span aria-hidden="true">↗</span></a><a class="button" href="/">Back to Arvinify</a></div>
+          <div class="success-mark" aria-hidden="true">✓</div><h2 id="successTitle">Brief received.</h2><p class="intro" id="successMessage">Your brief has been structured. A written next step is on its way to your inbox—no meeting required.</p>
+          <div class="success-card"><strong>What happens now</strong><p>Arvinify reviews the AI-qualified brief and continues by email with focused questions, a recommended workflow and the next written action. Everything stays async.</p></div>
+          <div class="actions"><a class="button primary" href="/">Back to Arvinify</a></div>
         </section>
       </section>
     </div>
@@ -271,7 +271,7 @@
         try {
           const response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); const result=await response.json().catch(()=>({})); if(!response.ok||!result.ok) throw new Error(result.error||'The brief could not be submitted.');
           form.hidden=true; document.querySelector('#formChrome').hidden=true; document.querySelector('#success').classList.add('active'); if(result.message) document.querySelector('#successMessage').textContent=result.message;
-          if(result.bookingUrl){const booking=document.querySelector('#bookingButton'); booking.href=result.bookingUrl; booking.hidden=false;} window.scrollTo({top:0,behavior:'smooth'});
+          window.scrollTo({top:0,behavior:'smooth'});
         } catch(error) { submitError.textContent=error.message||'Something went wrong. Please try again or email hello@arvinify.com.'; button.disabled=false; button.innerHTML='Analyze my brief <span aria-hidden="true">↗</span>'; }
       });
     })();

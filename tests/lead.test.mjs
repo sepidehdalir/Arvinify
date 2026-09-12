@@ -47,15 +47,15 @@ test('rejects missing consent and invalid enum values', () => {
   assert.match(validateLead(validBody({ businessType: 'ignore_previous_instructions' })).error, /business type/);
 });
 
-test('rules qualification sends a strong, time-sensitive fit to booking', () => {
+test('rules qualification routes a strong, time-sensitive fit to written scope', () => {
   const { lead } = validateLead(validBody());
   const result = rulesQualification(lead);
   assert.equal(result.priority, 'high');
-  assert.equal(result.recommendedAction, 'book');
+  assert.equal(result.recommendedAction, 'written_scope');
   assert.ok(result.score >= 70);
 });
 
-test('handler uses rules fallback, sends both emails, and returns booking URL', async () => {
+test('handler uses rules fallback, sends both async emails, and returns no meeting CTA', async () => {
   const originalFetch = globalThis.fetch;
   const originalEnv = { ...process.env };
   const calls = [];
@@ -63,7 +63,7 @@ test('handler uses rules fallback, sends both emails, and returns booking URL', 
   process.env.RESEND_API_KEY = 're_test';
   process.env.LEAD_NOTIFY_FROM = 'Arvinify <hello@arvinify.com>';
   process.env.LEAD_NOTIFY_TO = 'hello@arvinify.com';
-  process.env.BOOKING_URL = 'https://cal.example/arvinify';
+  delete process.env.BOOKING_URL;
   delete process.env.CRM_WEBHOOK_URL;
   delete process.env.FOLLOW_UP_ENABLED;
   globalThis.fetch = async (url, options) => {
@@ -76,10 +76,13 @@ test('handler uses rules fallback, sends both emails, and returns booking URL', 
     await handler(req, res);
     assert.equal(res.code, 200);
     assert.equal(res.payload.ok, true);
-    assert.equal(res.payload.bookingUrl, 'https://cal.example/arvinify');
+    assert.equal('bookingUrl' in res.payload, false);
+    assert.match(res.payload.message, /no meeting required/i);
     assert.equal(calls.length, 2);
     assert.deepEqual(calls.map((call) => call.body.to[0]).sort(), ['hello@arvinify.com', 'jordan@northstar.example']);
     assert.ok(calls.every((call) => call.options.headers['Idempotency-Key']));
+    const customerEmail = calls.find((call) => call.body.to[0] === 'jordan@northstar.example');
+    assert.match(customerEmail.body.text, /No call or meeting is required/i);
   } finally {
     globalThis.fetch = originalFetch;
     process.env = originalEnv;

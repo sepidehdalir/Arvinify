@@ -14,7 +14,7 @@ test('revenue brief advances through all steps and submits the expected payload'
       window.scrollTo = () => {};
       window.fetch = async (url, options) => {
         requests.push({ url, options, body: JSON.parse(options.body) });
-        return { ok: true, json: async () => ({ ok: true, message: 'Qualified.', bookingUrl: 'https://cal.example/arvinify' }) };
+        return { ok: true, json: async () => ({ ok: true, message: 'A written next step is on its way—no meeting required.' }) };
       };
     }
   });
@@ -50,7 +50,8 @@ test('revenue brief advances through all steps and submits the expected payload'
   assert.equal(requests[0].body.consent, true);
   assert.equal(document.querySelector('#leadForm').hidden, true);
   assert.ok(document.querySelector('#success').classList.contains('active'));
-  assert.equal(document.querySelector('#bookingButton').href, 'https://cal.example/arvinify');
+  assert.equal(document.querySelector('#bookingButton'), null);
+  assert.match(document.querySelector('#successMessage').textContent, /no meeting required/i);
 
   dom.window.close();
 });

@@ -9,7 +9,7 @@ Arvinify's production marketing site and AI revenue-intake system for B2B servic
 - Website Rescue brief preserved at `/rescue` (`rescue.html` + `api/rescue.js`)
 - AI qualification with a deterministic rules fallback (`api/lead.mjs`)
 - Immediate customer acknowledgement and owner notification through Resend
-- Qualified-lead booking handoff when `BOOKING_URL` is configured
+- Async written qualification and next-step handoff with no sales-call requirement
 - Optional signed CRM webhook and one scheduled follow-up
 - Server-side validation, honeypot, request-size limit, origin check and best-effort rate limiting
 
@@ -30,4 +30,4 @@ Before accepting real briefs, add the server-only values documented in `.env.exa
 
 ## Verification
 
-The test suite validates input normalization, enum rejection, deterministic scoring, Resend payload creation and qualified booking behavior without sending real email.
+The test suite validates input normalization, enum rejection, deterministic scoring, Resend payload creation and the async written-response flow without sending real email.
