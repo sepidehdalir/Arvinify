@@ -1,17 +1,18 @@
 # Arvinify
 
-Arvinify's production marketing site and AI revenue-intake system for B2B service firms.
+Arvinify's marketing site and written intake system for a fixed-scope home-service lead-response pilot in Canada.
 
 ## What is live in this repository
 
-- High-end responsive landing page (`index.html`)
-- Three-step revenue brief (`start.html`)
+- High-end responsive home-service pilot landing page (`index.html`)
+- Three-step written pilot fit check (`start.html`)
 - Website Rescue brief preserved at `/rescue` (`rescue.html` + `api/rescue.js`)
-- AI qualification with a deterministic rules fallback (`api/lead.mjs`)
+- Home-service pilot qualification with a deterministic rules fallback (`api/lead.mjs`)
 - Immediate customer acknowledgement and owner notification through Resend
 - Async written qualification and next-step handoff with no sales-call requirement
 - Optional signed CRM webhook and one scheduled follow-up
 - Server-side validation, honeypot, request-size limit, origin check and best-effort rate limiting
+- Internal Sunify founding-pilot measurement plan (`docs/SUNIFY_PILOT.md`)
 
 ## Runtime
 

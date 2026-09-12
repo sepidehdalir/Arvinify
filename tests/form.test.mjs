@@ -5,7 +5,7 @@ import { JSDOM } from 'jsdom';
 
 const html = await readFile(new URL('../start.html', import.meta.url), 'utf8');
 
-test('revenue brief advances through all steps and submits the expected payload', async () => {
+test('pilot fit check advances through all steps and submits the expected payload', async () => {
   const requests = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously',
@@ -14,15 +14,15 @@ test('revenue brief advances through all steps and submits the expected payload'
       window.scrollTo = () => {};
       window.fetch = async (url, options) => {
         requests.push({ url, options, body: JSON.parse(options.body) });
-        return { ok: true, json: async () => ({ ok: true, message: 'A written next step is on its way—no meeting required.' }) };
+        return { ok: true, json: async () => ({ ok: true, message: 'A written pilot fit decision is on its way—no meeting required.' }) };
       };
     }
   });
   const { document, Event } = dom.window;
 
-  document.querySelector('[name="companyName"]').value = 'Northstar Advisory';
-  document.querySelector('[name="websiteUrl"]').value = 'northstar.example';
-  document.querySelector('[data-group="businessType"] [data-value="consultancy"]').click();
+  document.querySelector('[name="companyName"]').value = 'North Shore Renovations';
+  document.querySelector('[name="websiteUrl"]').value = 'northshorerenovations.example';
+  document.querySelector('[data-group="businessType"] [data-value="renovation"]').click();
   document.querySelector('.step[data-step="1"] [data-next]').click();
   assert.ok(document.querySelector('.step[data-step="2"]').classList.contains('active'));
 
@@ -46,12 +46,14 @@ test('revenue brief advances through all steps and submits the expected payload'
   assert.equal(requests[0].url, '/api/lead');
   assert.equal(requests[0].body.source, 'linkedin');
   assert.equal(requests[0].body.bottleneck, 'slow_response');
+  assert.equal(requests[0].body.businessType, 'renovation');
   assert.deepEqual(requests[0].body.tools, ['website', 'inbox']);
+  assert.equal(requests[0].body.phone, '');
   assert.equal(requests[0].body.consent, true);
   assert.equal(document.querySelector('#leadForm').hidden, true);
   assert.ok(document.querySelector('#success').classList.contains('active'));
   assert.equal(document.querySelector('#bookingButton'), null);
-  assert.match(document.querySelector('#successMessage').textContent, /no meeting required/i);
+  assert.match(document.querySelector('#successMessage').textContent, /pilot fit decision/i);
 
   dom.window.close();
 });
@@ -63,5 +65,6 @@ test('form blocks progress until required business context is present', () => {
   assert.ok(document.querySelector('.step[data-step="1"]').classList.contains('active'));
   assert.match(document.querySelector('[data-error="companyName"]').textContent, /company name/i);
   assert.match(document.querySelector('[data-error="websiteUrl"]').textContent, /valid website/i);
+  assert.equal(document.querySelector('[name="phone"]'), null);
   dom.window.close();
 });

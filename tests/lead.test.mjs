@@ -5,17 +5,17 @@ import handler, { rulesQualification, validateLead } from '../api/lead.mjs';
 function validBody(overrides = {}) {
   return {
     requestId: '123e4567-e89b-12d3-a456-426614174000',
-    companyName: 'Northstar Advisory',
-    websiteUrl: 'northstar.example',
-    businessType: 'consultancy',
+    companyName: 'North Shore Renovations',
+    websiteUrl: 'northshorerenovations.example',
+    businessType: 'renovation',
     bottleneck: 'slow_response',
     tools: ['website', 'inbox', 'calendar', 'crm'],
     leadVolume: '200_plus',
     dealValue: '50k_plus',
     timeline: 'now',
-    details: 'Inbound requests wait in a shared inbox before a person asks the same qualification questions manually.',
+    details: 'New renovation requests wait in a shared inbox before a person asks for the address, project timing and site photos.',
     name: 'Jordan Alvarez',
-    email: 'jordan@northstar.example',
+    email: 'jordan@northshorerenovations.example',
     phone: '+1 604 555 0148',
     consent: true,
     source: 'test',
@@ -37,8 +37,8 @@ function responseMock() {
 test('validates and normalizes an accepted lead', () => {
   const result = validateLead(validBody());
   assert.ok(result.lead);
-  assert.equal(result.lead.websiteUrl, 'https://northstar.example/');
-  assert.equal(result.lead.email, 'jordan@northstar.example');
+  assert.equal(result.lead.websiteUrl, 'https://northshorerenovations.example/');
+  assert.equal(result.lead.email, 'jordan@northshorerenovations.example');
   assert.deepEqual(result.lead.tools, ['website', 'inbox', 'calendar', 'crm']);
 });
 
@@ -77,12 +77,13 @@ test('handler uses rules fallback, sends both async emails, and returns no meeti
     assert.equal(res.code, 200);
     assert.equal(res.payload.ok, true);
     assert.equal('bookingUrl' in res.payload, false);
-    assert.match(res.payload.message, /no meeting required/i);
+    assert.match(res.payload.message, /pilot fit decision/i);
     assert.equal(calls.length, 2);
-    assert.deepEqual(calls.map((call) => call.body.to[0]).sort(), ['hello@arvinify.com', 'jordan@northstar.example']);
+    assert.deepEqual(calls.map((call) => call.body.to[0]).sort(), ['hello@arvinify.com', 'jordan@northshorerenovations.example']);
     assert.ok(calls.every((call) => call.options.headers['Idempotency-Key']));
-    const customerEmail = calls.find((call) => call.body.to[0] === 'jordan@northstar.example');
+    const customerEmail = calls.find((call) => call.body.to[0] === 'jordan@northshorerenovations.example');
     assert.match(customerEmail.body.text, /No call or meeting is required/i);
+    assert.match(customerEmail.body.subject, /pilot fit request/i);
   } finally {
     globalThis.fetch = originalFetch;
     process.env = originalEnv;

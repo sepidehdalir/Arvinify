@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arvinify — AI Revenue Automation for B2B Service Firms</title>
-  <meta name="description" content="Arvinify connects your website, inbox, calendar and CRM so every inbound lead receives a fast, consistent next step—from response to qualification, follow-up and booking.">
+  <title>Arvinify — AI Lead Response for Canadian Home Services</title>
+  <meta name="description" content="Arvinify installs monitored lead-response systems for Canadian contractors and home-service companies: fast replies, job-detail collection, qualification, follow-up and owner-ready handoff.">
   <meta name="theme-color" content="#07111f">
-  <meta property="og:title" content="Arvinify — AI Revenue Automation">
-  <meta property="og:description" content="Turn every inbound lead into a next step. Respond, qualify, follow up and book—24/7.">
+  <meta property="og:title" content="Arvinify — AI Lead Response for Home Services">
+  <meta property="og:description" content="Turn new service enquiries into quote-ready next steps—without adding another person to the inbox.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.arvinify.com/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Arvinify — AI Revenue Automation">
-  <meta name="twitter:description" content="Turn every inbound lead into a next step. Respond, qualify, follow up and book—24/7.">
+  <meta name="twitter:title" content="Arvinify — AI Lead Response for Home Services">
+  <meta name="twitter:description" content="Fast replies, complete job details and a clean owner handoff for Canadian home-service companies.">
   <link rel="canonical" href="https://www.arvinify.com/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230A121E'/%3E%3Cpath fill='%23F5F7FA' fill-rule='evenodd' d='M32 9 55 53H43.5l-4.8-9.5H25.3L20.5 53H9L32 9Zm0 17.2-5 9.8h10l-5-9.8Z'/%3E%3C/svg%3E">
   <style>
@@ -483,6 +483,32 @@
     .delivery-step h3 { margin: 74px 0 13px; font-size: 1.35rem; }
     .delivery-step p { color: var(--muted); margin: 0; font-size: .94rem; max-width: 330px; }
 
+    .pilot-section { padding-top: 30px; }
+    .pilot-card {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      overflow: hidden;
+      border: 1px solid rgba(124, 247, 197, .30);
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(14, 38, 51, .96), rgba(6, 16, 28, .96));
+      box-shadow: var(--shadow);
+    }
+    .pilot-summary { padding: clamp(34px, 5vw, 62px); border-right: 1px solid var(--line); }
+    .pilot-summary h2 { max-width: 580px; font-size: clamp(2.35rem, 4.7vw, 4rem); }
+    .pilot-summary > p { max-width: 560px; color: var(--muted); }
+    .pilot-price { display: flex; align-items: baseline; gap: 9px; margin: 31px 0 5px; }
+    .pilot-price strong { font-size: clamp(2.65rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.06em; }
+    .pilot-price span { color: var(--muted); font-weight: 650; }
+    .pilot-monthly { margin: 0 0 28px; color: #c9d6df; font-weight: 650; }
+    .pilot-note { display: block; margin-top: 13px; color: var(--quiet); font-size: .78rem; }
+    .pilot-includes { padding: clamp(34px, 5vw, 62px); background: rgba(7, 20, 33, .58); }
+    .pilot-includes h3 { margin-bottom: 20px; font-size: 1.18rem; }
+    .check-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .check-list li { position: relative; padding-left: 29px; color: #c8d5df; }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--mint); font-weight: 800; }
+    .pilot-fit { margin: 27px 0 0; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .pilot-fit strong { color: var(--ink); }
+
     .rescue {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -555,6 +581,8 @@
       .system-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
       .system-card:nth-last-child(-n+2) { border-bottom: 0; }
       .fit-copy { position: static; }
+      .pilot-card { grid-template-columns: 1fr; }
+      .pilot-summary { border-right: 0; border-bottom: 1px solid var(--line); }
       .delivery-grid { grid-template-columns: 1fr; }
       .delivery-step { min-height: 240px; }
       .delivery-step h3 { margin-top: 42px; }
@@ -604,6 +632,9 @@
       .rescue .button { width: 100%; }
       .delivery-step { min-height: 268px; padding: 25px 22px; }
       .delivery-step h3 { margin-top: 52px; }
+      .pilot-card { border-radius: 24px; }
+      .pilot-summary, .pilot-includes { padding: 30px 22px; }
+      .pilot-price { margin-top: 25px; }
       .faq-grid { gap: 34px; }
       .cta-section { padding-top: 28px; }
       .cta-card { padding: 34px 22px; border-radius: 24px; }
@@ -630,8 +661,16 @@
       "name": "Arvinify",
       "url": "https://www.arvinify.com/",
       "email": "hello@arvinify.com",
-      "description": "AI revenue automation for B2B service firms.",
-      "areaServed": ["Canada", "International"],
+      "description": "Monitored AI lead-response systems for Canadian contractors and home-service companies.",
+      "serviceType": "AI lead response and qualification automation",
+      "areaServed": "Canada",
+      "makesOffer": {
+        "@type": "Offer",
+        "name": "Home-Service Lead Response Founding Pilot",
+        "price": "1250",
+        "priceCurrency": "CAD",
+        "description": "One-time pilot setup. Ongoing monitoring is CAD 299 per month, plus applicable tax and third-party usage fees."
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "North Vancouver",
@@ -653,6 +692,7 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#system">System</a>
         <a href="#fit">Who it’s for</a>
+        <a href="#pilot">Pilot & pricing</a>
         <a href="#faq">FAQ</a>
         <a class="button" href="/start">Start a brief <span class="arrow" aria-hidden="true">↗</span></a>
       </nav>
@@ -663,43 +703,43 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">AI revenue automation · B2B services</div>
-          <h1>Turn every inbound lead <span class="accent">into a next step.</span></h1>
-          <p>Arvinify connects your website, inbox, calendar and CRM so qualified prospects get a fast, consistent path from first touch to booked meeting—24/7.</p>
+          <div class="eyebrow">Lead response systems · Canadian home services</div>
+          <h1>Turn every new enquiry <span class="accent">into a quote-ready job.</span></h1>
+          <p>Arvinify installs a monitored workflow for contractors and home-service companies—designed to reply in under 60 seconds, collect job details and photos, qualify fit and hand your team a clear next action.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/start">Send a written brief <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="button" href="#system">See the system <span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="/start?source=homepage">Check your fit — written only <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="button" href="#pilot">See pilot pricing <span class="arrow" aria-hidden="true">↓</span></a>
           </div>
           <ul class="micro-proof" aria-label="Working principles">
-            <li>No sales-call gate</li>
-            <li>Clear scope</li>
-            <li>Human handoff built in</li>
+            <li>Fixed pilot price</li>
+            <li>Keep your current website</li>
+            <li>No sales call required</li>
           </ul>
         </div>
 
-        <div class="workflow-stage" role="img" aria-label="Example lead-to-meeting workflow">
+        <div class="workflow-stage" role="img" aria-label="Example home-service lead-response workflow">
           <img class="workflow-art" src="assets/revenue-workflow.png" alt="">
           <div class="terminal-bar"><span>LEAD ROUTER / ACTIVE</span><span class="live">MONITORED</span></div>
           <div class="flow-line" aria-hidden="true"></div>
           <div class="flow">
             <div class="flow-step">
               <div class="flow-icon">01</div>
-              <div class="flow-label">Capture the inquiry<small>Web form, chat or inbox</small></div>
+              <div class="flow-label">Capture the enquiry<small>Website form or shared inbox</small></div>
               <span class="status">received</span>
             </div>
             <div class="flow-step">
               <div class="flow-icon">02</div>
-              <div class="flow-label">Respond with context<small>Useful, on-brand first reply</small></div>
+              <div class="flow-label">Reply in under a minute<small>Useful, on-brand acknowledgement</small></div>
               <span class="status">ready</span>
             </div>
             <div class="flow-step">
               <div class="flow-icon">03</div>
-              <div class="flow-label">Qualify and route<small>Need, fit, timing and owner</small></div>
+              <div class="flow-label">Gather scope and photos<small>Job, location, timing and fit</small></div>
               <span class="status">matched</span>
             </div>
             <div class="flow-step">
               <div class="flow-icon">04</div>
-              <div class="flow-label">Follow up or book<small>CRM-ready handoff with full context</small></div>
+              <div class="flow-label">Send the owner handoff<small>Clean summary and follow-up path</small></div>
               <span class="status">complete</span>
             </div>
           </div>
@@ -709,11 +749,11 @@
 
     <section class="signal-band" aria-label="Core workflow outcomes">
       <div class="wrap signal-grid">
-        <strong>One connected lead journey.</strong>
-        <div class="signal-item"><span>RESPOND</span>Consistent first contact</div>
-        <div class="signal-item"><span>QUALIFY</span>Collect the right context</div>
-        <div class="signal-item"><span>FOLLOW UP</span>Keep momentum moving</div>
-        <div class="signal-item"><span>BOOK</span>Make the next step easy</div>
+        <strong>One focused path from enquiry to action.</strong>
+        <div class="signal-item"><span>RESPOND</span>Target under 60 seconds</div>
+        <div class="signal-item"><span>COLLECT</span>Job details and photos</div>
+        <div class="signal-item"><span>QUALIFY</span>Service area and fit</div>
+        <div class="signal-item"><span>HAND OFF</span>Owner-ready summary</div>
       </div>
     </section>
 
@@ -721,14 +761,14 @@
       <div class="wrap">
         <div class="section-heading">
           <div class="kicker">The revenue leak</div>
-          <h2>Good leads disappear in the gaps between tools.</h2>
-          <p>Most service firms do not need another chatbot. They need a reliable operating layer between the moment a prospect raises a hand and the moment a person takes over.</p>
+          <h2>Good jobs disappear while the crew is busy.</h2>
+          <p>Home-service companies rarely need another generic chatbot. They need a dependable front door between a new enquiry and the person who decides what happens next.</p>
         </div>
         <div class="leak-grid">
-          <article class="leak-card"><span class="card-no">01 / SPEED</span><h3>First replies arrive too late</h3><p>High-intent prospects move on when the first useful response waits for a busy inbox.</p></article>
-          <article class="leak-card"><span class="card-no">02 / CONTEXT</span><h3>Lead details are incomplete</h3><p>Teams lose time asking the same questions or chasing information that could be collected upfront.</p></article>
-          <article class="leak-card"><span class="card-no">03 / MOMENTUM</span><h3>Follow-up stops too soon</h3><p>Qualified opportunities go quiet because reminders and next steps rely on memory.</p></article>
-          <article class="leak-card"><span class="card-no">04 / HANDOFF</span><h3>Systems fall out of sync</h3><p>Forms, calendars and CRMs tell different stories, leaving ownership unclear.</p></article>
+          <article class="leak-card"><span class="card-no">01 / SPEED</span><h3>Enquiries wait after hours</h3><p>A homeowner requests a quote at night and hears nothing until the next workday—or from a competitor first.</p></article>
+          <article class="leak-card"><span class="card-no">02 / CONTEXT</span><h3>Address and photos are missing</h3><p>Your team starts another back-and-forth just to learn the location, scope, timing and condition of the job.</p></article>
+          <article class="leak-card"><span class="card-no">03 / FIT</span><h3>Every lead looks the same</h3><p>Small, out-of-area and high-value requests all land in one inbox without a clear priority.</p></article>
+          <article class="leak-card"><span class="card-no">04 / FOLLOW-UP</span><h3>Next steps depend on memory</h3><p>Strong opportunities go quiet when nobody owns the reminder after the first reply or estimate.</p></article>
         </div>
       </div>
     </section>
@@ -736,16 +776,16 @@
     <section class="section system-section" id="system">
       <div class="wrap system-shell">
         <div class="system-top">
-          <div><div class="kicker">What we build</div><h2>A practical AI revenue system.</h2></div>
-          <p>Each build starts with a defined business workflow. AI handles the repeatable parts; rules, monitoring and human review protect the moments that require judgment.</p>
+          <div><div class="kicker">What we install</div><h2>A faster front desk for new jobs.</h2></div>
+          <p>The system handles repeatable intake and follow-up. Your team keeps control of pricing, commitments and every decision that requires trade judgment.</p>
         </div>
         <div class="system-grid">
-          <article class="system-card"><div class="icon">CHAT</div><h3>AI-assisted intake</h3><p>Website conversations and guided forms that collect useful context without creating friction.</p></article>
-          <article class="system-card"><div class="icon">MAIL</div><h3>Inbox and form response</h3><p>Fast, consistent replies shaped by the inquiry, service and next best action.</p></article>
-          <article class="system-card"><div class="icon">FIT</div><h3>Qualification and routing</h3><p>Scoring, fit checks and ownership rules that move the right lead to the right person.</p></article>
-          <article class="system-card"><div class="icon">SEQ</div><h3>Configured follow-up</h3><p>Useful email follow-up with timing, consent and human takeover rules defined for the workflow.</p></article>
-          <article class="system-card"><div class="icon">API</div><h3>Calendar, CRM and APIs</h3><p>Booking links and CRM-ready webhooks preserve context from first touch through the next step.</p></article>
-          <article class="system-card"><div class="icon">OPS</div><h3>Alerts and human handoff</h3><p>Clear escalation, monitoring and visibility so automation never becomes a black box.</p></article>
+          <article class="system-card"><div class="icon">IN</div><h3>Website and inbox capture</h3><p>Start from the enquiry sources you already use instead of forcing a full platform replacement.</p></article>
+          <article class="system-card"><div class="icon">60S</div><h3>Immediate branded reply</h3><p>A useful acknowledgement confirms receipt and tells the customer exactly what information comes next.</p></article>
+          <article class="system-card"><div class="icon">JOB</div><h3>Job-detail collection</h3><p>Ask only the questions your team needs, including location, timing, dimensions and photos when relevant.</p></article>
+          <article class="system-card"><div class="icon">FIT</div><h3>Service-area and fit rules</h3><p>Separate good-fit work from out-of-area, unsupported or incomplete requests before they interrupt the day.</p></article>
+          <article class="system-card"><div class="icon">OUT</div><h3>Owner-ready handoff</h3><p>Deliver a clean summary with contact details, scope, urgency and the recommended human next action.</p></article>
+          <article class="system-card"><div class="icon">OPS</div><h3>Follow-up and monitoring</h3><p>Run approved reminders, log outcomes and keep a visible human takeover point when judgment is needed.</p></article>
         </div>
       </div>
     </section>
@@ -754,14 +794,14 @@
       <div class="wrap fit-grid">
         <div class="fit-copy">
           <div class="kicker">Best fit</div>
-          <h2>Built for high-value service sales.</h2>
-          <p>The strongest use case is a B2B service firm with meaningful inbound interest, a multi-step sales process and expensive follow-up gaps.</p>
+          <h2>Built for crews that cannot live in the inbox.</h2>
+          <p>The strongest fit is an owner-led Canadian home-service company receiving at least 10 enquiries a month and still handling intake manually.</p>
         </div>
         <div class="fit-list">
-          <article class="fit-item"><div class="mono">AGENCY</div><div><h3>Agencies</h3><p>Qualify project inquiries, collect scope and route opportunities without slowing creative or delivery teams.</p></div></article>
-          <article class="fit-item"><div class="mono">ADVISORY</div><div><h3>Consultancies</h3><p>Turn broad inquiries into structured briefs and a clear next action for the right specialist.</p></div></article>
-          <article class="fit-item"><div class="mono">IT / MSP</div><div><h3>IT service firms and MSPs</h3><p>Separate sales opportunities from support needs, enrich requests and trigger the correct workflow.</p></div></article>
-          <article class="fit-item"><div class="mono">TALENT</div><div><h3>Recruiting firms</h3><p>Capture role requirements, qualify employer demand and keep candidate or client conversations moving.</p></div></article>
+          <article class="fit-item"><div class="mono">BUILD</div><div><h3>General contractors and renovators</h3><p>Collect project type, address, target timing, budget context and site photos before the owner reviews it.</p></div></article>
+          <article class="fit-item"><div class="mono">TRADE</div><div><h3>Electrical, plumbing and HVAC</h3><p>Separate urgent service, planned work and out-of-area requests while keeping the right person informed.</p></div></article>
+          <article class="fit-item"><div class="mono">OUTDOOR</div><div><h3>Deck, fence and landscape companies</h3><p>Gather dimensions, access notes, material preferences and reference photos in one structured path.</p></div></article>
+          <article class="fit-item"><div class="mono">REPAIR</div><div><h3>Repair, cleaning and restoration</h3><p>Capture severity, location and availability, then route the enquiry with an approved response and priority.</p></div></article>
         </div>
       </div>
     </section>
@@ -769,21 +809,41 @@
     <section class="section delivery" id="delivery">
       <div class="wrap">
         <div class="section-heading">
-          <div class="kicker">How we work</div>
-          <h2>Start small. Prove the workflow. Expand with evidence.</h2>
+          <div class="kicker">How the pilot works</div>
+          <h2>One workflow. Written approval. Measured for 30 days.</h2>
         </div>
         <div class="delivery-grid">
-          <article class="delivery-step"><span class="phase">Diagnose</span><h3>Find the leak</h3><p>We map the current lead journey, identify the costly handoff and define the outcome in writing.</p></article>
-          <article class="delivery-step"><span class="phase">Build</span><h3>Connect the path</h3><p>We implement the focused workflow, integrations, guardrails and human escalation points.</p></article>
-          <article class="delivery-step"><span class="phase">Operate</span><h3>Test and monitor</h3><p>We validate real scenarios, watch the system in use and refine it as the business learns.</p></article>
+          <article class="delivery-step"><span class="phase">Fit check</span><h3>Map it in writing</h3><p>Submit the current lead path. We confirm fit, inputs, exclusions and the exact workflow by email—no sales meeting.</p></article>
+          <article class="delivery-step"><span class="phase">Build</span><h3>Connect and approve</h3><p>We configure one lead source, qualification rules, messages, alerts and the human handoff for written approval.</p></article>
+          <article class="delivery-step"><span class="phase">Measure</span><h3>Run a 30-day scorecard</h3><p>Track response time, completed job details, qualified handoffs and follow-up coverage before expanding anything.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="rescue-title">
-      <div class="wrap rescue">
-        <div><div class="kicker">Secondary service</div><h3 id="rescue-title">Website Rescue is still available.</h3><p>Urgent Shopify, WordPress, Webflow, Wix, Squarespace, React and Next.js repairs remain part of the Arvinify toolkit.</p></div>
-        <a class="button" href="/rescue">Start a rescue brief <span class="arrow" aria-hidden="true">↗</span></a>
+    <section class="section pilot-section" id="pilot" aria-labelledby="pilot-title">
+      <div class="wrap pilot-card">
+        <div class="pilot-summary">
+          <div class="kicker">Founding pilot · fixed scope</div>
+          <h2 id="pilot-title">Install the first working lead path.</h2>
+          <p>Start with one measurable enquiry source. Keep the website and inbox your team already knows.</p>
+          <div class="pilot-price"><strong>C$1,250</strong><span>setup</span></div>
+          <p class="pilot-monthly">Then C$299/month for monitoring and calibration.</p>
+          <a class="button button-primary" href="/start?source=founding-pilot">Apply in writing <span class="arrow" aria-hidden="true">↗</span></a>
+          <small class="pilot-note">Plus applicable tax. Third-party software, email, SMS or CRM usage is separate when required.</small>
+        </div>
+        <div class="pilot-includes">
+          <h3>The pilot includes</h3>
+          <ul class="check-list">
+            <li>One live source: website form or shared inbox</li>
+            <li>Immediate branded acknowledgement</li>
+            <li>Up to six job-qualification questions</li>
+            <li>Service-area and job-fit routing rules</li>
+            <li>Structured owner notification and human handoff</li>
+            <li>One approved follow-up sequence</li>
+            <li>Testing, monitoring and a 30-day scorecard</li>
+          </ul>
+          <p class="pilot-fit"><strong>Best fit:</strong> 10–200 inbound enquiries per month. Target launch is within 10 business days after access and written approval.</p>
+        </div>
       </div>
     </section>
 
@@ -791,23 +851,24 @@
       <div class="wrap faq-grid">
         <div class="section-heading"><div class="kicker">Straight answers</div><h2>Before we connect anything.</h2></div>
         <div class="faq-list">
-          <details><summary>Is this just a chatbot?</summary><p>No. Chat can be one input, but the product is the workflow around it: capture, response, qualification, routing, configured follow-up, booking, CRM handoff and human review.</p></details>
-          <details><summary>Do we have to replace our CRM or website?</summary><p>Usually not. The goal is to connect the tools your team already relies on and replace only what is actively blocking the workflow.</p></details>
-          <details><summary>Will AI contact leads without limits?</summary><p>No. Every channel is configured deliberately with consent, timing and escalation rules, plus a clear point where a person takes over.</p></details>
-          <details><summary>Do we need a sales call to start?</summary><p>No. Intake, scoping, approval and delivery can all run asynchronously through the written brief and email. No meeting is required.</p></details>
-          <details><summary>Can you still fix the underlying website?</summary><p>Yes. Website Rescue remains available for urgent technical issues and can be combined with an automation build when the conversion path itself needs repair.</p></details>
+          <details><summary>Is this just a chatbot?</summary><p>No. The pilot is a complete lead path: capture, response, job-detail collection, fit rules, owner handoff, approved follow-up and monitoring. Chat is optional.</p></details>
+          <details><summary>Do we have to replace our website or CRM?</summary><p>Usually not. The pilot starts with one source you already use and connects only what the approved workflow requires.</p></details>
+          <details><summary>Does AI set prices or promise work?</summary><p>No. Your team keeps control of estimates, commitments and trade decisions. Automation handles only the approved intake, routing and follow-up rules.</p></details>
+          <details><summary>How quickly can the pilot go live?</summary><p>The target is within 10 business days after access, content and written approval are provided. The confirmed schedule is included in the written scope.</p></details>
+          <details><summary>Do we need a sales call to start?</summary><p>No. Fit check, scoping, approval and delivery can run through the written brief and email. A phone number is not required.</p></details>
+          <details><summary>What does the monthly fee cover?</summary><p>Monitoring, failure checks, small message or rule adjustments and the pilot scorecard. New channels or major workflow changes are scoped separately in writing.</p></details>
+          <details><summary>Is Website Rescue still available?</summary><p>Yes. Existing clients can still use <a href="/rescue">Website Rescue</a> for urgent Shopify, WordPress, Webflow, Wix, Squarespace, React or Next.js issues.</p></details>
         </div>
       </div>
     </section>
 
     <section class="cta-section">
       <div class="wrap cta-card">
-        <div class="kicker">Start with the bottleneck</div>
-        <h2>Where does your lead journey break?</h2>
-        <p>Send the current path, the tools involved and the outcome you want. Arvinify will respond with focused questions and a practical next step—no discovery-call gate.</p>
+        <div class="kicker">Three-minute written fit check</div>
+        <h2>See whether your lead flow fits the pilot.</h2>
+        <p>Share the current enquiry path, volume and typical job value. Arvinify will send a written fit decision and practical next step. No discovery call and no phone number required.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="/start">Send the brief <span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="button" href="https://www.linkedin.com/company/arvinify/services/request-proposal" target="_blank" rel="noreferrer">Use LinkedIn instead</a>
+          <a class="button button-primary" href="/start?source=final-cta">Check pilot fit <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -815,8 +876,8 @@
 
   <footer>
     <div class="wrap footer-grid">
-      <div>© 2026 Arvinify · North Vancouver, British Columbia · Remote worldwide</div>
-      <div class="footer-links"><a href="mailto:hello@arvinify.com">Email</a><a href="https://www.linkedin.com/company/arvinify/" target="_blank" rel="noreferrer">LinkedIn</a><a href="#top">Back to top ↑</a></div>
+      <div>© 2026 Arvinify · North Vancouver, British Columbia · Serving Canada</div>
+      <div class="footer-links"><a href="mailto:hello@arvinify.com">Email</a><a href="/rescue">Website Rescue</a><a href="https://www.linkedin.com/company/arvinify/" target="_blank" rel="noreferrer">LinkedIn</a><a href="#top">Back to top ↑</a></div>
     </div>
   </footer>
   <script>
@@ -850,7 +911,8 @@
         '.fit-copy',
         '.fit-item',
         '.delivery-step',
-        '.rescue',
+        '.pilot-summary',
+        '.pilot-includes',
         '.faq-list details',
         '.cta-card'
       ];
@@ -882,7 +944,7 @@
 
       const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       if (!reduceMotion && finePointer) {
-        document.querySelectorAll('.workflow-stage, .leak-card, .system-card, .fit-item, .delivery-step, .cta-card').forEach((surface) => {
+        document.querySelectorAll('.workflow-stage, .leak-card, .system-card, .fit-item, .delivery-step, .pilot-card, .cta-card').forEach((surface) => {
           surface.classList.add('motion-surface');
           surface.addEventListener('pointermove', (event) => {
             const bounds = surface.getBoundingClientRect();

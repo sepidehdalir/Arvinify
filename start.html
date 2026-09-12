@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Start an AI Revenue Brief — Arvinify</title>
-  <meta name="description" content="Share the bottleneck in your lead journey. Arvinify will qualify the request and send a focused next step.">
+  <title>Apply for the Home-Service Lead Pilot — Arvinify</title>
+  <meta name="description" content="Complete Arvinify's written fit check for a fixed-scope home-service lead-response pilot. No sales call or phone number required.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#050b14">
   <link rel="canonical" href="https://www.arvinify.com/start">
@@ -158,13 +158,13 @@
   <main>
     <div class="shell">
       <aside class="context">
-        <div class="eyebrow">AI revenue brief</div>
-        <h1>Start with the bottleneck.</h1>
-        <p>No discovery-call gate. Give us the operating context and the system will shape a useful next step.</p>
+        <div class="eyebrow">Home-service lead pilot</div>
+        <h1>Show us where new jobs get stuck.</h1>
+        <p>Complete the fit check in writing. No discovery call and no phone number required.</p>
         <ol class="context-meta" aria-label="What happens next">
-          <li class="meta-item"><span class="meta-no">01</span><span>Your request is validated and structured.</span></li>
-          <li class="meta-item"><span class="meta-no">02</span><span>AI qualifies the opportunity with guardrails.</span></li>
-          <li class="meta-item"><span class="meta-no">03</span><span>You receive a focused response and next step.</span></li>
+          <li class="meta-item"><span class="meta-no">01</span><span>We check the workflow and pilot fit.</span></li>
+          <li class="meta-item"><span class="meta-no">02</span><span>You receive the scope and exclusions in writing.</span></li>
+          <li class="meta-item"><span class="meta-no">03</span><span>You approve the next step by email—no meeting.</span></li>
         </ol>
       </aside>
       <section class="workspace">
@@ -174,49 +174,48 @@
         </div>
         <form id="leadForm" novalidate>
           <section class="step active" data-step="1" aria-labelledby="step1Title">
-            <h2 id="step1Title">Give us the business context.</h2>
-            <p class="intro">A few concrete signals are more useful than a long pitch.</p>
+            <h2 id="step1Title">Tell us what kind of work you do.</h2>
+            <p class="intro">This pilot is designed for Canadian contractors and home-service companies.</p>
             <div class="field-grid">
-              <div class="field"><label for="companyName">Company name</label><input id="companyName" name="companyName" type="text" autocomplete="organization" maxlength="120" placeholder="Northstar Advisory" required><p class="error" data-error="companyName"></p></div>
+              <div class="field"><label for="companyName">Company name</label><input id="companyName" name="companyName" type="text" autocomplete="organization" maxlength="120" placeholder="North Shore Renovations" required><p class="error" data-error="companyName"></p></div>
               <div class="field"><label for="websiteUrl">Website</label><input id="websiteUrl" name="websiteUrl" type="url" inputmode="url" autocomplete="url" maxlength="400" placeholder="yourcompany.com" required><p class="error" data-error="websiteUrl"></p></div>
             </div>
             <fieldset><legend>Business type</legend><div class="chips" data-group="businessType" data-multiple="false">
-              <button class="chip" type="button" data-value="agency" aria-pressed="false">Agency</button><button class="chip" type="button" data-value="consultancy" aria-pressed="false">Consultancy</button><button class="chip" type="button" data-value="it_msp" aria-pressed="false">IT / MSP</button><button class="chip" type="button" data-value="recruiting" aria-pressed="false">Recruiting</button><button class="chip" type="button" data-value="professional_services" aria-pressed="false">Professional services</button><button class="chip" type="button" data-value="other" aria-pressed="false">Other</button>
+              <button class="chip" type="button" data-value="general_contractor" aria-pressed="false">General contractor</button><button class="chip" type="button" data-value="renovation" aria-pressed="false">Renovation</button><button class="chip" type="button" data-value="trades" aria-pressed="false">Electrical / plumbing / HVAC</button><button class="chip" type="button" data-value="outdoor" aria-pressed="false">Deck / fence / landscape</button><button class="chip" type="button" data-value="cleaning_restoration" aria-pressed="false">Cleaning / restoration</button><button class="chip" type="button" data-value="other_home_service" aria-pressed="false">Other home service</button>
             </div><p class="error" data-error="businessType"></p></fieldset>
             <div class="actions"><button class="button primary" type="button" data-next>Continue <span aria-hidden="true">→</span></button></div>
           </section>
           <section class="step" data-step="2" aria-labelledby="step2Title">
-            <h2 id="step2Title">Where does revenue get stuck?</h2><p class="intro">Choose the main leak. We will use the rest as supporting context.</p>
+            <h2 id="step2Title">What slows down new enquiries?</h2><p class="intro">Choose the main leak. We will use the rest as supporting context.</p>
             <fieldset><legend>Primary bottleneck</legend><div class="chips" data-group="bottleneck" data-multiple="false">
-              <button class="chip" type="button" data-value="slow_response" aria-pressed="false">Slow first response</button><button class="chip" type="button" data-value="weak_qualification" aria-pressed="false">Weak qualification</button><button class="chip" type="button" data-value="follow_up" aria-pressed="false">Follow-up gaps</button><button class="chip" type="button" data-value="booking" aria-pressed="false">Booking friction</button><button class="chip" type="button" data-value="crm_handoff" aria-pressed="false">CRM handoff</button><button class="chip" type="button" data-value="other" aria-pressed="false">Other</button>
+              <button class="chip" type="button" data-value="slow_response" aria-pressed="false">Slow first response</button><button class="chip" type="button" data-value="missing_job_details" aria-pressed="false">Missing job details</button><button class="chip" type="button" data-value="after_hours" aria-pressed="false">After-hours enquiries</button><button class="chip" type="button" data-value="follow_up" aria-pressed="false">Follow-up gaps</button><button class="chip" type="button" data-value="owner_handoff" aria-pressed="false">Owner handoff</button><button class="chip" type="button" data-value="other" aria-pressed="false">Other</button>
             </div><p class="error" data-error="bottleneck"></p></fieldset>
             <fieldset><legend>Tools in the current path <span class="optional">(select all that apply)</span></legend><div class="chips" data-group="tools" data-multiple="true">
-              <button class="chip" type="button" data-value="website" aria-pressed="false">Website / forms</button><button class="chip" type="button" data-value="inbox" aria-pressed="false">Shared inbox</button><button class="chip" type="button" data-value="calendar" aria-pressed="false">Calendar</button><button class="chip" type="button" data-value="crm" aria-pressed="false">CRM</button><button class="chip" type="button" data-value="chat" aria-pressed="false">Chat</button><button class="chip" type="button" data-value="none" aria-pressed="false">Nothing connected</button>
+              <button class="chip" type="button" data-value="website" aria-pressed="false">Website / forms</button><button class="chip" type="button" data-value="inbox" aria-pressed="false">Email inbox</button><button class="chip" type="button" data-value="sms" aria-pressed="false">SMS / text</button><button class="chip" type="button" data-value="phone" aria-pressed="false">Phone</button><button class="chip" type="button" data-value="crm" aria-pressed="false">CRM</button><button class="chip" type="button" data-value="calendar" aria-pressed="false">Calendar</button><button class="chip" type="button" data-value="none" aria-pressed="false">Nothing connected</button>
             </div><p class="error" data-error="tools"></p></fieldset>
             <div class="field-grid">
               <div class="field"><label for="leadVolume">Inbound leads / month</label><select id="leadVolume" name="leadVolume" required><option value="">Select a range</option><option value="under_10">Under 10</option><option value="10_50">10–50</option><option value="51_200">51–200</option><option value="200_plus">200+</option><option value="unknown">Not sure</option></select><p class="error" data-error="leadVolume"></p></div>
               <div class="field"><label for="dealValue">Typical client value</label><select id="dealValue" name="dealValue" required><option value="">Select a range</option><option value="under_2k">Under $2k</option><option value="2k_10k">$2k–$10k</option><option value="10k_50k">$10k–$50k</option><option value="50k_plus">$50k+</option><option value="unknown">Not sure</option></select><p class="error" data-error="dealValue"></p></div>
             </div>
             <div class="field"><label for="timeline">When should this improve?</label><select id="timeline" name="timeline" required><option value="">Select timing</option><option value="now">As soon as possible</option><option value="30_days">Within 30 days</option><option value="quarter">This quarter</option><option value="exploring">Exploring options</option></select><p class="error" data-error="timeline"></p></div>
-            <div class="field"><label for="details">What happens today? <span class="optional">(optional)</span></label><textarea id="details" name="details" maxlength="2500" placeholder="A lead fills the form, then someone checks the inbox and manually asks three follow-up questions..."></textarea><p class="error" data-error="details"></p></div>
+            <div class="field"><label for="details">What happens today? <span class="optional">(optional)</span></label><textarea id="details" name="details" maxlength="2500" placeholder="Tell us your main services and service area, where enquiries arrive, what details or photos you need, and who responds today..."></textarea><p class="error" data-error="details"></p></div>
             <div class="actions"><button class="button back-button" type="button" data-back>Back</button><button class="button primary" type="button" data-next>Continue <span aria-hidden="true">→</span></button></div>
           </section>
           <section class="step" data-step="3" aria-labelledby="step3Title">
-            <h2 id="step3Title">Where should we send the next step?</h2><p class="intro">The response is shaped from the workflow details you just provided.</p>
+            <h2 id="step3Title">Where should we send the written fit decision?</h2><p class="intro">We will use the workflow details you provided to recommend the smallest practical pilot.</p>
             <div class="field-grid">
               <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" placeholder="Jordan Alvarez" required><p class="error" data-error="name"></p></div>
               <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="160" placeholder="jordan@company.com" required><p class="error" data-error="email"></p></div>
             </div>
-            <div class="field"><label for="phone">Phone <span class="optional">(optional)</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" placeholder="+1 604 555 0148"><p class="error" data-error="phone"></p></div>
             <div class="hp" aria-hidden="true"><label for="company_website">Leave empty</label><input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
             <label class="consent"><input id="consent" name="consent" type="checkbox" required><span>I agree that Arvinify may email me about this request and its relevant next steps. I can opt out at any time. See the <a href="/privacy" target="_blank">Privacy Policy</a>.</span></label>
             <p class="error" data-error="consent"></p><p class="error" id="submitError" role="alert" aria-live="polite"></p>
-            <div class="actions"><button class="button back-button" type="button" data-back>Back</button><button class="button primary" id="submitButton" type="submit">Analyze my brief <span aria-hidden="true">↗</span></button></div>
+            <div class="actions"><button class="button back-button" type="button" data-back>Back</button><button class="button primary" id="submitButton" type="submit">Check pilot fit <span aria-hidden="true">↗</span></button></div>
           </section>
         </form>
         <section class="step success" id="success" aria-labelledby="successTitle">
-          <div class="success-mark" aria-hidden="true">✓</div><h2 id="successTitle">Brief received.</h2><p class="intro" id="successMessage">Your brief has been structured. A written next step is on its way to your inbox—no meeting required.</p>
-          <div class="success-card"><strong>What happens now</strong><p>Arvinify reviews the AI-qualified brief and continues by email with focused questions, a recommended workflow and the next written action. Everything stays async.</p></div>
+          <div class="success-mark" aria-hidden="true">✓</div><h2 id="successTitle">Fit request received.</h2><p class="intro" id="successMessage">Your request has been structured. A written pilot fit decision is on its way—no meeting required.</p>
+          <div class="success-card"><strong>What happens now</strong><p>Arvinify reviews the request and continues by email with any focused questions, the recommended pilot workflow and the next written action. Everything stays async.</p></div>
           <div class="actions"><a class="button primary" href="/">Back to Arvinify</a></div>
         </section>
       </section>
@@ -267,12 +266,12 @@
       form.addEventListener('submit',async(event)=>{
         event.preventDefault(); if(!validate(3)) return;
         const button=document.querySelector('#submitButton'); const submitError=document.querySelector('#submitError'); submitError.textContent=''; button.disabled=true; button.innerHTML='<span class="spinner" aria-hidden="true"></span> Analyzing…';
-        const payload={requestId,companyName:value('companyName'),websiteUrl:value('websiteUrl'),businessType:state.businessType,bottleneck:state.bottleneck,tools:state.tools,leadVolume:value('leadVolume'),dealValue:value('dealValue'),timeline:value('timeline'),details:value('details'),name:value('name'),email:value('email'),phone:value('phone'),consent:document.querySelector('#consent').checked,company_website:value('company_website'),source:new URLSearchParams(location.search).get('source')||'website'};
+        const payload={requestId,companyName:value('companyName'),websiteUrl:value('websiteUrl'),businessType:state.businessType,bottleneck:state.bottleneck,tools:state.tools,leadVolume:value('leadVolume'),dealValue:value('dealValue'),timeline:value('timeline'),details:value('details'),name:value('name'),email:value('email'),phone:'',consent:document.querySelector('#consent').checked,company_website:value('company_website'),source:new URLSearchParams(location.search).get('source')||'website'};
         try {
           const response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); const result=await response.json().catch(()=>({})); if(!response.ok||!result.ok) throw new Error(result.error||'The brief could not be submitted.');
           form.hidden=true; document.querySelector('#formChrome').hidden=true; document.querySelector('#success').classList.add('active'); if(result.message) document.querySelector('#successMessage').textContent=result.message;
           window.scrollTo({top:0,behavior:'smooth'});
-        } catch(error) { submitError.textContent=error.message||'Something went wrong. Please try again or email hello@arvinify.com.'; button.disabled=false; button.innerHTML='Analyze my brief <span aria-hidden="true">↗</span>'; }
+        } catch(error) { submitError.textContent=error.message||'Something went wrong. Please try again or email hello@arvinify.com.'; button.disabled=false; button.innerHTML='Check pilot fit <span aria-hidden="true">↗</span>'; }
       });
     })();
   </script>
