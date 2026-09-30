@@ -112,19 +112,55 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
 .hero-sub{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:38px;max-width:770px}
 .hero-sub p{color:#b8afa6;line-height:1.7;font-size:.95rem}
 .hero-sub strong{color:var(--ivory);font-weight:500}
-.hero-side{position:relative;min-height:540px;display:flex;align-items:center;justify-content:center}
-.sculpture{width:min(520px,40vw);aspect-ratio:1;position:relative;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
-.orbit{position:absolute;inset:8%;border:1px solid rgba(238,224,210,.2);border-radius:50%;animation:spin 18s linear infinite}
-.orbit.o2{inset:19%;transform:rotate(63deg);animation-duration:13s;border-color:rgba(197,43,61,.38)}
-.orbit.o3{inset:30%;transform:rotate(-37deg);animation-duration:9s}
-.orbit:before{content:"";position:absolute;width:9px;height:9px;background:var(--red);border-radius:50%;left:50%;top:-5px;box-shadow:0 0 30px var(--red)}
-.core{position:absolute;inset:34%;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fb9caa,#7e101f 28%,#1a0b0e 64%,#050505 76%);box-shadow:inset -20px -20px 40px #000,0 0 100px rgba(164,13,34,.25);animation:float 7s ease-in-out infinite}
-.sigil{position:absolute;inset:0;display:grid;place-items:center;font:italic 500 clamp(4rem,7vw,7rem) var(--serif);mix-blend-mode:screen;opacity:.88}
-.edge-note{position:absolute;right:0;top:18%;writing-mode:vertical-rl;font:400 .62rem var(--mono);letter-spacing:.25em;color:#8e837b;text-transform:uppercase}
+.hero-side{position:relative;min-height:560px;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;width:min(560px,42vw);height:520px;perspective:1200px}
+.stage-grid{position:absolute;inset:0;background:
+linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+background-size:46px 46px;mask-image:linear-gradient(to bottom,#000,transparent 92%);opacity:.45}
+.stage-word{position:absolute;font:500 clamp(4.8rem,8vw,8.4rem)/.82 var(--serif);letter-spacing:-.07em;color:#f4ece1;mix-blend-mode:screen;user-select:none}
+.stage-word.one{left:2%;top:5%;transform:rotate(-7deg)}
+.stage-word.two{right:0;top:34%;font-style:italic;color:var(--red);transform:rotate(5deg)}
+.stage-card{position:absolute;border:1px solid rgba(255,255,255,.17);background:rgba(17,14,13,.72);backdrop-filter:blur(14px);box-shadow:0 28px 80px rgba(0,0,0,.38);overflow:hidden;transition:transform .6s var(--ease),border-color .4s ease}
+.stage-card:hover{border-color:rgba(255,255,255,.38)}
+.card-a{width:54%;height:44%;left:6%;bottom:5%;transform:rotate(-8deg)}
+.card-b{width:43%;height:39%;right:2%;top:6%;transform:rotate(8deg)}
+.card-c{width:38%;height:26%;right:10%;bottom:10%;transform:rotate(2deg)}
+.stage-card .cap{position:absolute;left:16px;right:16px;top:14px;display:flex;justify-content:space-between;font:400 .56rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#b2a69d;z-index:2}
+.stage-card .visual{position:absolute;inset:0}
+.card-a .visual{background:
+radial-gradient(circle at 70% 32%,rgba(214,50,72,.55),transparent 18%),
+linear-gradient(145deg,#21110f,#451019 42%,#090909 78%)}
+.card-a .visual:after{content:"";position:absolute;inset:18% 10% 12% 22%;border:1px solid rgba(255,255,255,.16);transform:skew(-14deg) rotate(-6deg)}
+.card-b .visual{background:linear-gradient(150deg,#0d0d0d,#2b2520 55%,#080808)}
+.card-b .visual:before{content:"M";position:absolute;inset:0;display:grid;place-items:center;font:italic 500 8rem var(--serif);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.2)}
+.card-c .visual{background:
+linear-gradient(90deg,transparent 48%,rgba(197,43,61,.7) 49%,transparent 50%),
+linear-gradient(160deg,#0b0b0b,#1d1211)}
+.stage-label{position:absolute;left:0;bottom:-22px;font:400 .56rem var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#746c66}
+.edge-note{position:absolute;right:-10px;top:12%;writing-mode:vertical-rl;font:400 .6rem var(--mono);letter-spacing:.22em;color:#8e837b;text-transform:uppercase}
 .scroll-note{position:absolute;left:32px;bottom:24px;font:400 .6rem var(--mono);letter-spacing:.15em;color:#817971;text-transform:uppercase;transform:rotate(-90deg);transform-origin:left bottom}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes float{50%{transform:translateY(-15px) scale(1.025)}}
-@media(max-width:950px){.hero{padding-top:130px;align-items:center}.hero-grid{grid-template-columns:1fr}.hero-side{min-height:390px}.sculpture{width:min(460px,82vw)}.hero-sub{grid-template-columns:1fr}.scroll-note{display:none}}
+@media(max-width:950px){
+  .hero{padding-top:116px;align-items:center}
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(4.1rem,18vw,6.7rem);line-height:.82}
+  .hero-side{min-height:470px;margin-top:16px}
+  .stage{width:min(540px,92vw);height:430px}
+  .stage-word{font-size:clamp(4rem,17vw,7rem)}
+  .hero-sub{grid-template-columns:1fr}
+  .scroll-note,.edge-note{display:none}
+}
+@media(max-width:520px){
+  .hero{padding-top:104px;padding-bottom:48px}
+  .hero h1{font-size:clamp(3.7rem,17.5vw,5.3rem);letter-spacing:-.055em}
+  .hero-kicker{font-size:.58rem;line-height:1.6;max-width:80%}
+  .hero-sub{margin-top:26px}
+  .hero-sub p{font-size:.9rem}
+  .stage{height:360px}
+  .card-a{width:60%;height:46%;left:2%;bottom:3%}
+  .card-b{width:47%;height:40%;right:0;top:4%}
+  .card-c{width:42%;height:28%;right:6%;bottom:6%}
+}
 /* manifesto */
 .section{padding:140px 0;border-top:1px solid var(--line)}
 .section-head{display:flex;align-items:start;justify-content:space-between;gap:40px;margin-bottom:72px}
@@ -274,10 +310,22 @@ footer{position:relative;z-index:2;padding:0 0 34px}
       </div>
     </div>
     <div class="hero-side reveal" data-delay="1">
-      <div class="sculpture" aria-hidden="true">
-        <div class="orbit"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="core"></div><div class="sigil">C</div>
+      <div class="stage hover-target" id="heroStage" aria-label="Interactive preview of Celina Dalir's design practice">
+        <div class="stage-grid"></div>
+        <div class="stage-word one">CELINA</div>
+        <div class="stage-word two">MAKES</div>
+        <div class="stage-card card-a" data-depth="1.4">
+          <div class="cap"><span>01 / Web direction</span><span>Arvinify</span></div><div class="visual"></div>
+        </div>
+        <div class="stage-card card-b" data-depth=".9">
+          <div class="cap"><span>02 / Product</span><span>MirrorLux</span></div><div class="visual"></div>
+        </div>
+        <div class="stage-card card-c" data-depth="1.9">
+          <div class="cap"><span>03 / Motion study</span><span>2026</span></div><div class="visual"></div>
+        </div>
+        <div class="stage-label">Move the cursor / tilt the composition</div>
       </div>
-      <div class="edge-note">Web · Brand · Motion · AI</div>
+      <div class="edge-note">Design · Motion · Technology</div>
     </div>
   </div>
   <div class="scroll-note">Scroll to explore</div>
