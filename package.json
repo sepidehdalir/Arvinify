@@ -2,7 +2,11 @@
   "name": "arvinify",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "build:design": "node scripts/build-design.mjs && python3 scripts/sync-brand-apps.py",
+    "test": "node --test tests/design.test.mjs"
+  },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   }
 }

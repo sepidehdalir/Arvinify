@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0B0E'/%3E%3Cpath d='M30 70 L50 28 L70 70' stroke='%233DDC97' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='40' y1='56' x2='60' y2='56' stroke='%23F4F5F2' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
+
 <style>
   :root{--bg:#0A0B0E;--bg-2:#101216;--panel:#14171C;--paper:#F4F5F2;--ash:#98A0AC;--ash-dim:#646B77;--fix:#3DDC97;--ink:#07120C;--line:rgba(244,245,242,0.10);--line-soft:rgba(244,245,242,0.055);--maxw:1160px}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -70,15 +70,12 @@
   :focus-visible{outline:2px solid var(--fix);outline-offset:3px}
   @media(max-width:640px){.wrap,.nav-in{padding-left:20px;padding-right:20px}.hero{padding:128px 0 48px}}
 </style>
-</head>
+<link rel="stylesheet" href="/assets/brand.css"><link rel="icon" href="/assets/brand-icon.svg"></head>
 <body>
 
 <nav id="nav">
   <div class="nav-in">
-    <a class="logo" href="/" aria-label="Arvinify home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#14171C"/><path d="M30 70 L50 28 L70 70" stroke="#3DDC97" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="40" y1="56" x2="60" y2="56" stroke="#F4F5F2" stroke-width="9" stroke-linecap="round"/></svg>
-      Arvinify <span style="font-family:'JetBrains Mono';font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fix);border:1px solid var(--line);padding:3px 7px;margin-left:2px">Labs</span>
-    </a>
+    <a class="arvinify-brand" href="/" aria-label="Arvinify home"><span class="arvinify-mark" aria-hidden="true">✳</span><span class="arvinify-wordmark">arvinify</span></a>
     <a class="nav-cta" href="/start">Get My Website Fixed</a>
   </div>
 </nav>
